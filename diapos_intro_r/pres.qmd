@@ -21,6 +21,14 @@ format:
     include-after-body: footer_includes.html
 ---
 
+## Objectifs de la capsule
+
+- Introduire le langage R
+- Comprendre les avantages de R
+- Installer R et Positron
+- Introduire l'environnement Positron
+
+
 ## Les logiciels d'analyse de données{.smaller}
 
 ![](https://capsules-metho.github.io/diapos_intro_r/img/spss_logo.svg){.absolute top=340 left=100 width="20%"}
@@ -34,7 +42,7 @@ format:
 ![](https://capsules-metho.github.io/diapos_intro_r/img/r_logo.png){.absolute top=200 left=330 width="40%"}
 
 
-## Pourquoi R?{.smaller}
+## Pourquoi R?
 
 ![](https://capsules-metho.github.io/diapos_intro_r/img/r_logo.png){.absolute top=0 left=800 width="20%"}
 
@@ -45,11 +53,9 @@ format:
 - Gratuit
 - Collaboratif
 - Communauté active
-  - Stackoverflow
-  - r-bloggers
 - Adapté aux besoins des utilisateurs
 
-## Pourquoi R?{.smaller}
+## Pourquoi R?
 
 ![](https://capsules-metho.github.io/diapos_intro_r/img/r_logo.png){.absolute top=0 left=800 width="20%"}
 
@@ -59,12 +65,10 @@ format:
 
 - Offre une extension des fonctionnalités de base presque infinie
 - Peux répondre à des besoins très spécifiques
-- 21,744 packages sur CRAN (Comprehensive R Archive Network)
-  - Principal dépôt où sont hébergés les packages R
+- Plus de 22,000 packages sur CRAN (Comprehensive R Archive Network)
 - Beaucoup plus sur GitHub
-  - En plus de CRAN, de nombreux chercheurs publient leurs packages sur GitHub, une plateforme de partage de code
 
-## Pourquoi R?{.smaller}
+## Pourquoi R?
 
 ![](https://capsules-metho.github.io/diapos_intro_r/img/r_logo.png){.absolute top=0 left=800 width="20%"}
 
@@ -73,11 +77,9 @@ format:
 ### Reproductibilité
 
 - Rendre les analyses reproductibles
-- Permet de partager les analyses
-  - Les scripts R permettent de partager facilement le travail
+- Permet de partager le code
+- Facilite la transparence et la collaboration
 - Permet de retracer les erreurs
-- Partager le code
-  - Encourage la transparence et la collaboration dans la recherche
 
 ## Pourquoi R?{.smaller}
 
@@ -89,31 +91,73 @@ format:
 
 - Beaucoup de ressources
 - Beaucoup de tutoriels orientés vers les sciences sociales
+  - Swirl
   - Datacamp
-  - Coursera
-  - Datanovia
+  - Codecademy
+  - EdX
 
-#### Bref... important d'utiliser les mêmes outils que les chercheurs dans votre domaine
+#### Important d'utiliser les mêmes outils que les chercheurs dans votre domaine
 
-## Installer R et RStudio{.smaller}
 
-- C'est quoi la différence entre R et RStudio?
-- R est le moteur, RStudio est l'interface
-- RStudio facilite l'utilisation de R
-- RStudio est un IDE (Integrated Development Environment)
+## Datagotchi{.smaller}
+
+![](img/datagotchi_usa.png){.absolute top=0 left=850 width="30%"}
+
+- Application utilisant des variables lifestyles pour prédire le vote
+- Utiliser R et l'analyse de données à travers ce projet:
+  - Prototypage en Shiny
+  - Nettoyage des données
+  - Analyse factorielle
+  - Régressions et modèles
+  - Visualisation
+
+## 
+
+![](img/datagotchi_graph.png){.absolute top=0 left=0 width="200%"}
+
+::: {.r-stack}
+
+![](img/cartogram.png){.fragment .absolute top=0 left=0 width="200%"}
+
+![](img/turnout.png){.fragment .absolute top=0 left=0 width="200%"}
+
+::: 
+
+## Analyse textuelle{.smaller}
+
+- Analyse de ton 
+  - Est-ce que le texte est positif ou négatif?
+
+![](img/time_series_by_article.png){.absolute top=200 left=70 width="80%"}  
+
+
+## Au-delà de l'analyse de données{.smaller}
+
+- R ne se limite pas à l'analyse statistique, il peut aussi être utilisé pour développer des applications web interactives
+
+![](img/catalogue.png){absolute top=0 left=0 width="20%"}
+
+
+## Mais derrière tout ça... R{.smaller}
+
+- Voici l'envers du décor : 
+
+![](img/catalogue_code.png){absolute top=0 left=0 width="20%"}
+
+
+## Installer R et Positron{.smaller}
+
+- R est le langage de programmation
+- Positron est l'interface
+- Positron offre plein d'outils pour faciliter l'utilisation de R
+- RStudio est un IDE parmis tant d'autres 
 
 <br><br>
 
 ### À télécharger :
 
 - [Installer R](https://cran.r-project.org/)
-- [Installer RStudio](https://www.rstudio.com/products/rstudio/download/)
-
-## {background-image="https://capsules-metho.github.io/diapos_intro_r/img/rstudio.png"}
-## {background-image="https://capsules-metho.github.io/diapos_intro_r/img/rstudio_script.png"}
-## {background-image="https://capsules-metho.github.io/diapos_intro_r/img/rstudio_console.png"}
-## {background-image="https://capsules-metho.github.io/diapos_intro_r/img/rstudio_files.png"}
-## {background-image="https://capsules-metho.github.io/diapos_intro_r/img/rstudio_env.png"}
+- [Installer Positron](https://positron.posit.co/)
 
 ## Concept important : Le chemin d'arborescence{.smaller}
 
@@ -146,3 +190,8 @@ Les possibilités sont infinies, donc il est important de savoir où vous voulez
 - Chaque script doit être clair et facile à comprendre
 - Commenter votre code avec des `#`
 
+## Dans la prochaine capsule
+
+- Importer des données dans R
+- Nettoyer des données
+- Faire des graphiques simples
