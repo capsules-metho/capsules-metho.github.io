@@ -1,25 +1,14 @@
 <!doctype html>
-<html lang="en">
+<html lang="fr">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>PoliStats Academy - Quantitative Methods in Political Science</title>
+    <title>Capsules du CAPP - Méthodes quantitatives en science politique</title>
     <link rel="icon" type="image/x-icon" href="/static/favicon.ico" />
+    <link rel="stylesheet" href="assets/styles.css" />
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
     <script src="https://unpkg.com/feather-icons"></script>
-    <script>
-      tailwind.config = {
-        theme: {
-          extend: {
-            colors: {
-              primary: "#1E3A8A",
-              secondary: "#DBEAFE",
-            },
-          },
-        },
-      };
-    </script>
   </head>
   <body class="bg-gray-50">
     <!-- Navigation -->
@@ -30,16 +19,16 @@
         <div class="flex items-center space-x-4">
           <img
             src="http://static.photos/legal/200x200/1"
-            alt="Organization Logo"
+            alt="Logo de l'organisation"
             class="h-12 w-12 rounded-full border-2 border-white"
           />
-          <h1 class="text-2xl font-bold">PoliStats Academy</h1>
+          <h1 class="text-2xl font-bold">Capsules du CAPP</h1>
         </div>
         <div class="hidden md:flex space-x-8">
-          <a href="#" class="hover:text-secondary transition">Home</a>
-          <a href="#" class="hover:text-secondary transition">Courses</a>
-          <a href="#" class="hover:text-secondary transition">Resources</a>
-          <a href="#" class="hover:text-secondary transition">About</a>
+          <a href="#" class="hover:text-secondary transition">Accueil</a>
+          <a href="#" class="hover:text-secondary transition">Cours</a>
+          <a href="#" class="hover:text-secondary transition">Ressources</a>
+          <a href="#" class="hover:text-secondary transition">À propos</a>
         </div>
         <button class="md:hidden">
           <i data-feather="menu"></i>
@@ -51,16 +40,15 @@
     <header class="bg-gradient-to-r from-primary to-blue-900 text-white py-20">
       <div class="container mx-auto px-6 text-center">
         <h1 class="text-4xl md:text-6xl font-bold mb-6">
-          Master Political Science Quantitative Methods
+          Maîtrisez les méthodes quantitatives en science politique
         </h1>
         <p class="text-xl md:text-2xl mb-8 max-w-3xl mx-auto">
-          Data-driven insights for understanding political phenomena through
-          statistical analysis and research methods.
+          Des analyses basées sur les données pour comprendre les phénomènes politiques à travers l'analyse statistique et les méthodes de recherche.
         </p>
         <button
           class="bg-white text-primary font-bold px-8 py-3 rounded-full hover:bg-secondary transition"
         >
-          Start Learning
+          Commencer l'apprentissage
         </button>
       </div>
     </header>
@@ -68,7 +56,7 @@
     <!-- Tutorials Grid -->
     <section class="container mx-auto px-6 py-16">
       <h2 class="text-3xl font-bold text-center mb-12 text-gray-800">
-        Featured Tutorials
+        Capsules en vedette
       </h2>
 
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -80,7 +68,7 @@
           <div class="relative pb-2/3 h-48">
             <img
               src="http://static.photos/science/640x360/1"
-              alt="Regression Analysis"
+              alt="Analyse de régression"
               class="absolute h-full w-full object-cover"
             />
             <div
@@ -93,10 +81,10 @@
             <div class="flex justify-between items-start">
               <div>
                 <h3 class="font-bold text-xl mb-2">
-                  Regression Analysis in Political Science
+                  Analyse de régression en science politique
                 </h3>
                 <p class="text-gray-600">
-                  Learn how to apply regression models to political data
+                  Apprenez à appliquer des modèles de régression aux données politiques
                 </p>
               </div>
               <span
@@ -106,7 +94,7 @@
             </div>
             <div class="mt-4 flex items-center text-sm text-gray-500">
               <i data-feather="file-text" class="mr-1"></i>
-              <span>Includes slides</span>
+              <span>Inclut les diapositives</span>
             </div>
           </div>
         </a>
@@ -119,7 +107,7 @@
           <div class="relative pb-2/3 h-48">
             <img
               src="http://static.photos/people/640x360/2"
-              alt="Survey Methods"
+              alt="Méthodes de sondage"
               class="absolute h-full w-full object-cover"
             />
             <div
@@ -132,10 +120,10 @@
             <div class="flex justify-between items-start">
               <div>
                 <h3 class="font-bold text-xl mb-2">
-                  Political Survey Methodology
+                  Méthodologie des sondages politiques
                 </h3>
                 <p class="text-gray-600">
-                  Designing and analyzing political surveys
+                  Concevoir et analyser des sondages politiques
                 </p>
               </div>
               <span
@@ -145,7 +133,7 @@
             </div>
             <div class="mt-4 flex items-center text-sm text-gray-500">
               <i data-feather="file-text" class="mr-1"></i>
-              <span>Includes slides</span>
+              <span>Inclut les diapositives</span>
             </div>
           </div>
         </a>
@@ -158,7 +146,7 @@
           <div class="relative pb-2/3 h-48">
             <img
               src="http://static.photos/finance/640x360/3"
-              alt="Time Series Analysis"
+              alt="Analyse de séries temporelles"
               class="absolute h-full w-full object-cover"
             />
             <div
@@ -171,10 +159,10 @@
             <div class="flex justify-between items-start">
               <div>
                 <h3 class="font-bold text-xl mb-2">
-                  Time Series in Political Research
+                  Séries temporelles en recherche politique
                 </h3>
                 <p class="text-gray-600">
-                  Analyzing political trends over time
+                  Analyser les tendances politiques dans le temps
                 </p>
               </div>
               <span
@@ -184,7 +172,7 @@
             </div>
             <div class="mt-4 flex items-center text-sm text-gray-500">
               <i data-feather="file-text" class="mr-1"></i>
-              <span>Includes slides</span>
+              <span>Inclut les diapositives</span>
             </div>
           </div>
         </a>
@@ -195,7 +183,7 @@
     <section class="bg-secondary py-16">
       <div class="container mx-auto px-6">
         <h2 class="text-3xl font-bold text-center mb-12 text-gray-800">
-          Why Learn With Us
+          Pourquoi apprendre avec nous
         </h2>
 
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -205,10 +193,9 @@
             >
               <i data-feather="book-open" class="text-white w-8 h-8"></i>
             </div>
-            <h3 class="font-bold text-xl mb-2">Comprehensive Curriculum</h3>
+            <h3 class="font-bold text-xl mb-2">Programme complet</h3>
             <p class="text-gray-600">
-              From basic statistics to advanced modeling techniques tailored for
-              political science.
+              Des statistiques de base aux techniques de modélisation avancées adaptées à la science politique.
             </p>
           </div>
 
@@ -218,10 +205,9 @@
             >
               <i data-feather="sliders" class="text-white w-8 h-8"></i>
             </div>
-            <h3 class="font-bold text-xl mb-2">Practical Applications</h3>
+            <h3 class="font-bold text-xl mb-2">Applications pratiques</h3>
             <p class="text-gray-600">
-              Real-world political datasets and case studies from elections,
-              policy analysis, and more.
+              Des données politiques réelles et des études de cas provenant d'élections, d'analyses de politiques publiques et plus encore.
             </p>
           </div>
 
@@ -231,9 +217,9 @@
             >
               <i data-feather="download" class="text-white w-8 h-8"></i>
             </div>
-            <h3 class="font-bold text-xl mb-2">Downloadable Resources</h3>
+            <h3 class="font-bold text-xl mb-2">Ressources téléchargeables</h3>
             <p class="text-gray-600">
-              Slides, datasets, and code snippets to reinforce your learning.
+              Diapositives, ensembles de données et extraits de code pour renforcer votre apprentissage.
             </p>
           </div>
         </div>
@@ -247,56 +233,55 @@
           <div>
             <img
               src="http://static.photos/legal/200x200/1"
-              alt="Organization Logo"
+              alt="Logo de l'organisation"
               class="h-16 w-16 rounded-full mb-4"
             />
             <p class="text-gray-300">
-              Advancing political science research through quantitative methods
-              education.
+              Faire avancer la recherche en science politique grâce à l'enseignement des méthodes quantitatives.
             </p>
           </div>
           <div>
-            <h4 class="font-bold text-lg mb-4">Tutorials</h4>
+            <h4 class="font-bold text-lg mb-4">Capsules</h4>
             <ul class="space-y-2">
               <li>
                 <a href="#" class="text-gray-300 hover:text-white transition"
-                  >Beginner</a
+                  >Débutant</a
                 >
               </li>
               <li>
                 <a href="#" class="text-gray-300 hover:text-white transition"
-                  >Intermediate</a
+                  >Intermédiaire</a
                 >
               </li>
               <li>
                 <a href="#" class="text-gray-300 hover:text-white transition"
-                  >Advanced</a
+                  >Avancé</a
                 >
               </li>
             </ul>
           </div>
           <div>
-            <h4 class="font-bold text-lg mb-4">Resources</h4>
+            <h4 class="font-bold text-lg mb-4">Ressources</h4>
             <ul class="space-y-2">
               <li>
                 <a href="#" class="text-gray-300 hover:text-white transition"
-                  >Datasets</a
+                  >Ensembles de données</a
                 >
               </li>
               <li>
                 <a href="#" class="text-gray-300 hover:text-white transition"
-                  >R Scripts</a
+                  >Scripts R</a
                 >
               </li>
               <li>
                 <a href="#" class="text-gray-300 hover:text-white transition"
-                  >Python Notebooks</a
+                  >Notebooks Python</a
                 >
               </li>
             </ul>
           </div>
           <div>
-            <h4 class="font-bold text-lg mb-4">Connect</h4>
+            <h4 class="font-bold text-lg mb-4">Connexion</h4>
             <div class="flex space-x-4">
               <a href="#" class="text-gray-300 hover:text-white transition"
                 ><i data-feather="twitter"></i
@@ -316,13 +301,11 @@
         <div
           class="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400"
         >
-          <p>© 2023 PoliStats Academy. All rights reserved.</p>
+          <p>© 2023 Capsules du CAPP. Tous droits réservés.</p>
         </div>
       </div>
     </footer>
 
-    <script>
-      feather.replace();
-    </script>
+    <script src="assets/main.js"></script>
   </body>
 </html>
