@@ -9,7 +9,7 @@ format:
   revealjs:
     theme: default
     slide-number: true
-    logo: img/capp.jpg
+    logo: https://capsules-metho.github.io/diapos_intro_r/img/capp.jpg
     footer: "Introduction à R"
     transition: slide
     transition-speed: fast
@@ -109,11 +109,11 @@ format:
 - [Installer R](https://cran.r-project.org/)
 - [Installer RStudio](https://www.rstudio.com/products/rstudio/download/)
 
-## {background-image="img/rstudio.png"}
-## {background-image="img/rstudio_script.png"}
-## {background-image="img/rstudio_console.png"}
-## {background-image="img/rstudio_files.png"}
-## {background-image="img/rstudio_env.png"}
+## {background-image="https://capsules-metho.github.io/diapos_intro_r/img/rstudio.png"}
+## {background-image="https://capsules-metho.github.io/diapos_intro_r/img/rstudio_script.png"}
+## {background-image="https://capsules-metho.github.io/diapos_intro_r/img/rstudio_console.png"}
+## {background-image="https://capsules-metho.github.io/diapos_intro_r/img/rstudio_files.png"}
+## {background-image="https://capsules-metho.github.io/diapos_intro_r/img/rstudio_env.png"}
 
 ## Concept important : Le chemin d'arborescence{.smaller}
 
@@ -121,7 +121,7 @@ format:
 - Votre R est toujours ouvert dans un dossier, et donc vous devez savoir où il est pour pouvoir importer des données
 - La fonction `getwd()` dans R permet de savoir où vous êtes
 
-![](img/chemin_arbo.png){.absolute top=400 left=75 width="80%"}
+![](https://capsules-metho.github.io/diapos_intro_r/img/chemin_arbo.png){.absolute top=400 left=75 width="80%"}
 
 ## Concept important : Planifier avant de coder{.smaller} 
 

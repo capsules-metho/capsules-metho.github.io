@@ -11,7 +11,7 @@ format:
   revealjs:
     theme: default
     slide-number: true
-    logo: img/capp.jpg
+    logo: https://capsules-metho.github.io/diapos_analyse_r/img/capp.jpg
     footer: "Introduction à l'analyse de données avec R"
     transition: slide
     transition-speed: fast
@@ -68,7 +68,7 @@ Autres fonctions pour importer des données dépendamment du format:
 - `df <- readxl::read_excel("chemin/vers/data.xlsx")`
 - `df <- readRDS("chemin/vers/data.rds")`
 
-![](img/df_in_env.png){.absolute top=300 left=150 width="70%"}
+![](https://capsules-metho.github.io/diapos_analyse_r/img/df_in_env.png){.absolute top=300 left=150 width="70%"}
 
 # Codons!
 
