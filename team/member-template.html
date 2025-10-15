@@ -1,0 +1,239 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>[NOM DU MEMBRE] | Capsules du CAPP</title>
+    <link rel="icon" type="image/x-icon" href="/static/favicon.ico" />
+    <link rel="stylesheet" href="../assets/styles.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+    <script src="https://unpkg.com/feather-icons"></script>
+  </head>
+  <body class="bg-gray-50">
+    <!-- Navigation -->
+    <nav class="bg-primary text-white shadow-lg">
+      <div
+        class="container mx-auto px-6 py-4 flex justify-between items-center"
+      >
+        <div class="flex items-center space-x-4">
+          <img
+            src="http://static.photos/legal/200x200/1"
+            alt="Logo de l'organisation"
+            class="h-12 w-12 rounded-full border-2 border-white"
+          />
+          <a href="../index.html" class="text-2xl font-bold">Capsules du CAPP</a>
+        </div>
+        <div class="hidden md:flex space-x-8">
+          <a href="../index.html" class="hover:text-secondary transition">Accueil</a>
+          <a href="#" class="hover:text-secondary transition">Cours</a>
+          <a href="#" class="hover:text-secondary transition">Ressources</a>
+          <a href="#" class="hover:text-secondary transition">À propos</a>
+        </div>
+        <button class="md:hidden">
+          <i data-feather="menu"></i>
+        </button>
+      </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="container mx-auto px-6 py-12">
+      <div class="max-w-4xl mx-auto">
+        <!-- Back Button -->
+        <a
+          href="../index.html#equipe"
+          class="inline-flex items-center text-primary hover:text-blue-800 mb-8 transition"
+        >
+          <i data-feather="arrow-left" class="mr-2"></i>
+          Retour à l'équipe
+        </a>
+
+        <!-- Profile Section -->
+        <div class="bg-white rounded-xl shadow-lg overflow-hidden">
+          <div class="md:flex">
+            <!-- Portrait -->
+            <div class="md:w-1/3">
+              <img
+                src="http://static.photos/people/400x400/1"
+                alt="[NOM DU MEMBRE]"
+                class="w-full h-full object-cover"
+              />
+            </div>
+
+            <!-- Info -->
+            <div class="md:w-2/3 p-8">
+              <h1 class="text-3xl font-bold mb-2">[NOM DU MEMBRE]</h1>
+              <p class="text-xl text-gray-600 mb-6">[TITRE / FONCTION]</p>
+
+              <!-- Contact Info -->
+              <div class="space-y-3 mb-6">
+                <div class="flex items-center text-gray-700">
+                  <i data-feather="mail" class="mr-3 text-primary"></i>
+                  <a href="mailto:[EMAIL]" class="hover:text-primary transition"
+                    >[EMAIL]</a
+                  >
+                </div>
+                <div class="flex items-center text-gray-700">
+                  <i data-feather="globe" class="mr-3 text-primary"></i>
+                  <a
+                    href="[SITE WEB]"
+                    target="_blank"
+                    class="hover:text-primary transition"
+                    >[SITE WEB]</a
+                  >
+                </div>
+                <div class="flex items-center text-gray-700">
+                  <i data-feather="twitter" class="mr-3 text-primary"></i>
+                  <a
+                    href="[TWITTER/X URL]"
+                    target="_blank"
+                    class="hover:text-primary transition"
+                    >@[USERNAME]</a
+                  >
+                </div>
+              </div>
+
+              <!-- Social Links -->
+              <div class="flex space-x-4">
+                <a
+                  href="[LINKEDIN URL]"
+                  target="_blank"
+                  class="text-gray-600 hover:text-primary transition"
+                >
+                  <i data-feather="linkedin"></i>
+                </a>
+                <a
+                  href="[GITHUB URL]"
+                  target="_blank"
+                  class="text-gray-600 hover:text-primary transition"
+                >
+                  <i data-feather="github"></i>
+                </a>
+                <a
+                  href="[ORCID URL]"
+                  target="_blank"
+                  class="text-gray-600 hover:text-primary transition"
+                >
+                  <i data-feather="book-open"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Bio Section -->
+          <div class="p-8 border-t border-gray-200">
+            <h2 class="text-2xl font-bold mb-4">Biographie</h2>
+            <div class="prose max-w-none text-gray-700">
+              <p>
+                [Insérez ici la biographie du membre de l'équipe. Décrivez son
+                parcours académique, ses domaines de recherche, ses publications
+                principales et ses contributions au domaine de la science
+                politique et des méthodes quantitatives.]
+              </p>
+              <p>
+                [Ajoutez autant de paragraphes que nécessaire pour présenter
+                complètement le parcours et l'expertise du membre de l'équipe.]
+              </p>
+            </div>
+          </div>
+
+          <!-- Research Interests -->
+          <div class="p-8 border-t border-gray-200 bg-gray-50">
+            <h2 class="text-2xl font-bold mb-4">Domaines de recherche</h2>
+            <div class="flex flex-wrap gap-2">
+              <span
+                class="bg-primary text-white px-3 py-1 rounded-full text-sm"
+                >[Domaine 1]</span
+              >
+              <span
+                class="bg-primary text-white px-3 py-1 rounded-full text-sm"
+                >[Domaine 2]</span
+              >
+              <span
+                class="bg-primary text-white px-3 py-1 rounded-full text-sm"
+                >[Domaine 3]</span
+              >
+              <span
+                class="bg-primary text-white px-3 py-1 rounded-full text-sm"
+                >[Domaine 4]</span
+              >
+              <!-- Ajoutez ou supprimez des domaines selon les besoins -->
+            </div>
+          </div>
+
+          <!-- Education -->
+          <div class="p-8 border-t border-gray-200">
+            <h2 class="text-2xl font-bold mb-4">Formation</h2>
+            <div class="space-y-4">
+              <div>
+                <h3 class="font-bold text-lg">[DIPLÔME]</h3>
+                <p class="text-gray-600">[UNIVERSITÉ], [ANNÉE]</p>
+                <p class="text-gray-600 text-sm">[Spécialisation / Thèse]</p>
+              </div>
+              <div>
+                <h3 class="font-bold text-lg">[DIPLÔME]</h3>
+                <p class="text-gray-600">[UNIVERSITÉ], [ANNÉE]</p>
+              </div>
+              <!-- Ajoutez plus d'entrées de formation selon les besoins -->
+            </div>
+          </div>
+
+          <!-- Selected Publications -->
+          <div class="p-8 border-t border-gray-200 bg-gray-50">
+            <h2 class="text-2xl font-bold mb-4">Publications sélectionnées</h2>
+            <div class="space-y-4">
+              <div class="flex items-start">
+                <i
+                  data-feather="file-text"
+                  class="mr-3 mt-1 text-primary flex-shrink-0"
+                ></i>
+                <p class="text-gray-700">
+                  [Auteur(s)]. ([Année]). "[Titre de l'article]." <em>[Nom de la revue]</em>, [Volume]([Numéro]), [Pages].
+                  <a href="[DOI/URL]" target="_blank" class="text-primary hover:underline">[DOI/Lien]</a>
+                </p>
+              </div>
+              <div class="flex items-start">
+                <i
+                  data-feather="file-text"
+                  class="mr-3 mt-1 text-primary flex-shrink-0"
+                ></i>
+                <p class="text-gray-700">
+                  [Auteur(s)]. ([Année]). "[Titre de l'article]." <em>[Nom de la revue]</em>, [Volume]([Numéro]), [Pages].
+                  <a href="[DOI/URL]" target="_blank" class="text-primary hover:underline">[DOI/Lien]</a>
+                </p>
+              </div>
+              <!-- Ajoutez plus de publications selon les besoins -->
+            </div>
+          </div>
+
+          <!-- Teaching & Tutorials -->
+          <div class="p-8 border-t border-gray-200">
+            <h2 class="text-2xl font-bold mb-4">Capsules et enseignements</h2>
+            <div class="grid grid-cols-1 gap-4">
+              <a
+                href="[LIEN VERS LA CAPSULE]"
+                class="flex items-center p-4 bg-white border border-gray-200 rounded-lg hover:shadow-md transition"
+              >
+                <i data-feather="play-circle" class="mr-4 text-primary"></i>
+                <div>
+                  <h3 class="font-bold">[Titre de la capsule]</h3>
+                  <p class="text-sm text-gray-600">[Brève description]</p>
+                </div>
+              </a>
+              <!-- Ajoutez plus de capsules selon les besoins -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-8 mt-12">
+      <div class="container mx-auto px-6 text-center">
+        <p>© 2023 Capsules du CAPP. Tous droits réservés.</p>
+      </div>
+    </footer>
+
+    <script src="../assets/main.js"></script>
+  </body>
+</html>
