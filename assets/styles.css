@@ -44,3 +44,37 @@ html {
 .hover\:text-secondary:hover {
   color: var(--color-secondary);
 }
+
+/* Horizontal scroll container for team section */
+.team-scroll-container {
+  display: flex;
+  overflow-x: auto;
+  overflow-y: hidden;
+  gap: 1.5rem;
+  padding-bottom: 1rem;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+}
+
+.team-scroll-container::-webkit-scrollbar {
+  height: 8px;
+}
+
+.team-scroll-container::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 10px;
+}
+
+.team-scroll-container::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 10px;
+}
+
+.team-scroll-container::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+.team-member-card {
+  flex: 0 0 auto;
+  width: 200px;
+}
