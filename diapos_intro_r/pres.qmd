@@ -159,39 +159,11 @@ format:
 - [Installer R](https://cran.r-project.org/)
 - [Installer Positron](https://positron.posit.co/)
 
-## Concept important : Le chemin d'arborescence{.smaller}
-
-- À tout moment vous devez savoir où vous êtes dans votre ordinateur pour pouvoir importer des données, exporter des graphiques ou mettre des fichiers en relation
-- Votre R est toujours ouvert dans un dossier, et donc vous devez savoir où il est pour pouvoir importer des données
-- La fonction `getwd()` dans R permet de savoir où vous êtes
-
-![](https://capsules-metho.github.io/diapos_intro_r/img/chemin_arbo.png){.absolute top=400 left=75 width="80%"}
-
-## Concept important : Planifier avant de coder{.smaller} 
-
-#### La plus grosse erreur est de commencer à coder sans savoir ce que vous voulez faire
-
-<br>
-
-- Clarifer vos objectifs: Qu'est-ce que vous voulez faire?
-  - Nettoyer des données?
-  - Faire un graphique?
-
-Les possibilités sont infinies, donc il est important de savoir où vous voulez aller
-
-## Concept important : Décomposer le problème{.smaller}
-
-- Une fois que vous savez ce que vous voulez faire, il est important de décomposer le problème en petites étapes
-- Un script R pour une seule tâche
-  - Bien nommer vos scripts pour savoir ce qu'ils font
-  - Exemples: 
-    - `nettoyage_donnees.R`
-    - `graphique.R`
-- Chaque script doit être clair et facile à comprendre
-- Commenter votre code avec des `#`
-
 ## Dans la prochaine capsule
 
-- Importer des données dans R
-- Nettoyer des données
-- Faire des graphiques simples
+- Importer des données
+- Installer et utiliser des packages
+- Manipuler des données
+- Faire des graphques
+
+
