@@ -44,19 +44,19 @@ Les possibilités sont infinies, donc il est important de savoir où vous voulez
 
 ## Avant de commencer : Décomposer le problème{.smaller}
 
-- Une fois que vous savez ce que vous voulez faire, il est important de décomposer le problème en petites étapes
+- Décomposer le problème en petites étapes
 - Un script R pour une seule tâche
   - Bien nommer vos scripts pour savoir ce qu'ils font
-  - Exemples: 
-    - `nettoyage_donnees.R`
+    - `nettoyage.R`
     - `graphique.R`
 - Chaque script doit être clair et facile à comprendre
 
 ## Avant de commencer : Le chemin d'arborescence{.smaller}
 
-- À tout moment vous devez savoir où vous êtes dans votre ordinateur pour pouvoir importer des données, exporter des graphiques ou mettre des fichiers en relation
-- Votre R est toujours ouvert dans un dossier, et donc vous devez savoir où il est pour pouvoir importer des données
-- La fonction `getwd()` dans R permet de savoir où vous êtes
+- À tout moment vous devez savoir où vous êtes dans votre ordinateur
+- Votre R est « pointe » toujours vers un dossier de votre ordinateur
+  - C'est le **répertoire de travail** (working directory)
+- La fonction `getwd()` permet de connaitre le répertoire de travail actuel
 
 ![](https://capsules-metho.github.io/diapos_intro_r/img/chemin_arbo.png){.absolute top=400 left=75 width="80%"}
 
@@ -88,6 +88,16 @@ df <- read.csv("chemin/vers/data.csv")
   - La fonction qui permet de lire le fichier : `read.csv()`
   - Le chemin vers le fichier : `"chemin/vers/data.csv"`
 
+## Importer des données{.smaller}
+
+Autres fonctions pour importer des données dépendamment du format:
+
+- `df <- readxl::read_excel("chemin/vers/data.xlsx")`
+- `df <- readRDS("chemin/vers/data.rds")`
+- `df <- haven::read_sav("chemin/vers/data.sav")` 
+
+![](https://capsules-metho.github.io/diapos_analyse_r/img/df_in_env.png){.absolute top=300 left=150 width="70%"}
+
 ## Chemins d'arborescence{.smaller}
 
 #### Important de comprendre comment spécifier le chemin vers un fichier
@@ -107,15 +117,6 @@ Voici les deux façons de spécifier le chemin :
 - Mac: `/`
 - Windows: `\` (il faut s'assurer de changer les `\` pour des `/`)
 
-
-## Importer des données{.smaller}
-
-Autres fonctions pour importer des données dépendamment du format:
-
-- `df <- readxl::read_excel("chemin/vers/data.xlsx")`
-- `df <- readRDS("chemin/vers/data.rds")`
-
-![](https://capsules-metho.github.io/diapos_analyse_r/img/df_in_env.png){.absolute top=300 left=150 width="70%"}
 
 # Codons!
 
