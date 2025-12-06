@@ -98,53 +98,6 @@ format:
 
 #### Important d'utiliser les mêmes outils que les chercheurs dans votre domaine
 
-
-## Datagotchi{.smaller}
-
-![](img/datagotchi_usa.png){.absolute top=0 left=850 width="30%"}
-
-- Application utilisant des variables lifestyles pour prédire le vote
-- Utiliser R et l'analyse de données à travers ce projet:
-  - Prototypage en Shiny
-  - Nettoyage des données
-  - Analyse factorielle
-  - Régressions et modèles
-  - Visualisation
-
-## 
-
-![](img/datagotchi_graph.png){.absolute top=0 left=0 width="200%"}
-
-::: {.r-stack}
-
-![](img/cartogram.png){.fragment .absolute top=0 left=0 width="200%"}
-
-![](img/turnout.png){.fragment .absolute top=0 left=0 width="200%"}
-
-::: 
-
-## Analyse textuelle{.smaller}
-
-- Analyse de ton 
-  - Est-ce que le texte est positif ou négatif?
-
-![](img/time_series_by_article.png){.absolute top=200 left=70 width="80%"}  
-
-
-## Au-delà de l'analyse de données{.smaller}
-
-- R ne se limite pas à l'analyse statistique, il peut aussi être utilisé pour développer des applications web interactives
-
-![](img/catalogue.png){absolute top=0 left=0 width="20%"}
-
-
-## Mais derrière tout ça... R{.smaller}
-
-- Voici l'envers du décor : 
-
-![](img/catalogue_code.png){absolute top=0 left=0 width="20%"}
-
-
 ## Installer R et Positron{.smaller}
 
 - R est le langage de programmation
