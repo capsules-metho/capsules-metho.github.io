@@ -54,7 +54,7 @@ Les possibilités sont infinies, donc il est important de savoir où vous voulez
 ## Avant de commencer : Le chemin d'arborescence{.smaller}
 
 - À tout moment vous devez savoir où vous êtes dans votre ordinateur
-- Votre R est « pointe » toujours vers un dossier de votre ordinateur
+- Votre R « pointe » toujours vers un dossier de votre ordinateur
   - C'est le **répertoire de travail** (working directory)
 - La fonction `getwd()` permet de connaitre le répertoire de travail actuel
 

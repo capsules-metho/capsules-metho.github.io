@@ -94,7 +94,6 @@ format:
   - Swirl
   - Datacamp
   - Codecademy
-  - EdX
 
 #### Important d'utiliser les mêmes outils que les chercheurs dans votre domaine
 
