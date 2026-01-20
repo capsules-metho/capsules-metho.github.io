@@ -1,623 +1,408 @@
 <!doctype html>
-<html lang="fr">
+<html lang="fr" class="scroll-smooth">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Capsules du CAPP - Méthodes quantitatives en science politique</title>
-    <link rel="icon" type="image/x-icon" href="/static/favicon.ico" />
-    <link rel="stylesheet" href="assets/styles.css" />
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+    <title>Capsules Métho | CAPP</title>
+    <meta name="description" content="Capsules méthodologiques en science politique">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&family=Space+Grotesk:wght@300;500;700&display=swap" rel="stylesheet">
+    
+    <!-- Icons -->
     <script src="https://unpkg.com/feather-icons"></script>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        darkMode: 'class',
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: ['Outfit', 'sans-serif'],
+              display: ['Space Grotesk', 'sans-serif'],
+            },
+            colors: {
+              dark: {
+                900: '#0f172a',
+                800: '#1e293b',
+                700: '#334155',
+              },
+              accent: {
+                purple: '#8b5cf6',
+                cyan: '#06b6d4',
+                pink: '#ec4899'
+              }
+            },
+            animation: {
+              'blob': 'blob 7s infinite',
+              'fade-in': 'fadeIn 1s ease-out',
+            },
+            keyframes: {
+              blob: {
+                '0%': { transform: 'translate(0px, 0px) scale(1)' },
+                '33%': { transform: 'translate(30px, -50px) scale(1.1)' },
+                '66%': { transform: 'translate(-20px, 20px) scale(0.9)' },
+                '100%': { transform: 'translate(0px, 0px) scale(1)' },
+              },
+              fadeIn: {
+                '0%': { opacity: '0', transform: 'translateY(20px)' },
+                '100%': { opacity: '1', transform: 'translateY(0)' },
+              }
+            }
+          }
+        }
+      }
+    </script>
+
+    <style>
+      body {
+        background-color: #0f172a;
+        color: #f8fafc;
+      }
+      
+      .glass-panel {
+        background: rgba(30, 41, 59, 0.7);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+      }
+
+      .gradient-text {
+        background: linear-gradient(135deg, #67e8f9 0%, #a855f7 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+
+      .video-card:hover .play-overlay {
+        opacity: 0;
+        pointer-events: none;
+      }
+      
+      /* Custom Scrollbar */
+      ::-webkit-scrollbar {
+        width: 10px;
+      }
+      ::-webkit-scrollbar-track {
+        background: #0f172a; 
+      }
+      ::-webkit-scrollbar-thumb {
+        background: #334155; 
+        border-radius: 5px;
+      }
+      ::-webkit-scrollbar-thumb:hover {
+        background: #475569; 
+      }
+    </style>
   </head>
-  <body class="bg-gray-50">
+  <body class="antialiased overflow-x-hidden selection:bg-accent-purple selection:text-white">
+
+    <!-- Background Decoration -->
+    <div class="fixed inset-0 z-[-1] overflow-hidden pointer-events-none">
+      <div class="absolute top-0 left-1/4 w-96 h-96 bg-accent-purple/20 rounded-full mix-blend-screen filter blur-3xl opacity-30 animate-blob"></div>
+      <div class="absolute top-0 right-1/4 w-96 h-96 bg-accent-cyan/20 rounded-full mix-blend-screen filter blur-3xl opacity-30 animate-blob animation-delay-2000"></div>
+      <div class="absolute -bottom-32 left-1/3 w-96 h-96 bg-accent-pink/20 rounded-full mix-blend-screen filter blur-3xl opacity-30 animate-blob animation-delay-4000"></div>
+    </div>
+
     <!-- Navigation -->
-    <nav class="bg-primary text-white shadow-lg">
-      <div
-        class="container mx-auto px-6 py-4 flex justify-between items-center"
-      >
-        <div class="flex items-center space-x-4">
-          <img
-            src="http://static.photos/legal/200x200/1"
-            alt="Logo de l'organisation"
-            class="h-12 w-12 rounded-full border-2 border-white"
-          />
-          <h1 class="text-2xl font-bold">Capsules du CAPP</h1>
+    <nav class="fixed w-full z-50 transition-all duration-300 glass-panel border-b-0">
+      <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+        <div class="flex items-center space-x-3 group">
+          <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-accent-cyan to-accent-purple flex items-center justify-center shadow-lg group-hover:shadow-accent-cyan/50 transition-all duration-300">
+            <i data-feather="box" class="text-white w-6 h-6"></i>
+          </div>
+          <span class="text-xl font-display font-bold tracking-tight">CAPP<span class="text-accent-cyan">.métho</span></span>
         </div>
-        <div class="hidden md:flex space-x-8">
-          <a href="index.html#hero" class="hover:text-secondary transition">Accueil</a>
-          <a href="index.html#capsules" class="hover:text-secondary transition">Cours</a>
-          <a href="index.html#ressources" class="hover:text-secondary transition">Ressources</a>
-          <a href="index.html#equipe" class="hover:text-secondary transition">À propos</a>
+        
+        <div class="hidden md:flex space-x-8 text-sm font-medium text-slate-300">
+          <a href="#capsules" class="hover:text-white transition-colors relative group">
+            Capsules
+            <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-accent-cyan transition-all group-hover:w-full"></span>
+          </a>
+          <a href="#about" class="hover:text-white transition-colors relative group">
+            À propos
+            <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-accent-purple transition-all group-hover:w-full"></span>
+          </a>
+          <a href="https://github.com/capsules-metho" target="_blank" class="hover:text-white transition-colors">GitHub</a>
         </div>
-        <button class="md:hidden">
-          <i data-feather="menu"></i>
-        </button>
       </div>
     </nav>
 
     <!-- Hero Section -->
-    <header id="hero" class="bg-gradient-to-r from-primary to-blue-900 text-white py-20">
-      <div class="container mx-auto px-6 text-center">
-        <h1 class="text-4xl md:text-6xl font-bold mb-6">
-          Maîtrisez les méthodes quantitatives en science politique
-        </h1>
-        <p class="text-xl md:text-2xl mb-8 max-w-3xl mx-auto">
-          Des analyses basées sur les données pour comprendre les phénomènes politiques à travers l'analyse statistique et les méthodes de recherche.
-        </p>
-        <button
-          class="bg-white text-primary font-bold px-8 py-3 rounded-full hover:bg-secondary transition"
-        >
-          Commencer l'apprentissage
-        </button>
+    <header class="relative pt-32 pb-20 lg:pt-48 lg:pb-32 container mx-auto px-6 text-center z-10">
+      <div class="inline-flex items-center px-4 py-2 rounded-full glass-panel border border-accent-purple/30 text-accent-cyan text-sm font-medium mb-8 animate-fade-in">
+        <span class="flex h-2 w-2 rounded-full bg-accent-cyan mr-2 animate-pulse"></span>
+        Nouveau contenu disponible
+      </div>
+      
+      <h1 class="font-display text-5xl md:text-7xl font-bold tracking-tight mb-8 leading-tight animate-fade-in">
+        La méthodologie <br>
+        <span class="gradient-text">réinventée.</span>
+      </h1>
+      
+      <p class="text-lg md:text-xl text-slate-400 max-w-2xl mx-auto mb-12 animate-fade-in" style="animation-delay: 0.1s;">
+        Une collection de capsules vidéo interactives pour maîtriser les outils essentiels de la recherche en science politique. R, GitHub, LaTeX et plus encore.
+      </p>
+      
+      <div class="flex flex-col sm:flex-row justify-center gap-4 animate-fade-in" style="animation-delay: 0.2s;">
+        <a href="#capsules" class="px-8 py-4 bg-white text-dark-900 rounded-full font-bold hover:bg-slate-200 transition-all shadow-[0_0_20px_rgba(255,255,255,0.3)] hover:shadow-[0_0_30px_rgba(255,255,255,0.5)]">
+          Explorer les capsules
+        </a>
       </div>
     </header>
 
-    <!-- Tutorials Grid -->
-    <section id="capsules" class="container mx-auto px-6 py-16">
-      <h2 class="text-3xl font-bold text-center mb-12 text-gray-800">
-        Nos capsules
-      </h2>
+    <!-- Capsules Grid -->
+    <main id="capsules" class="container mx-auto px-6 py-20 relative z-10">
+      <div class="flex items-end justify-between mb-12">
+        <div>
+          <h2 class="font-display text-3xl font-bold mb-2">Catalogue</h2>
+          <p class="text-slate-400">Parcourez nos derniers tutoriels vidéo.</p>
+        </div>
+        <div class="hidden md:block h-px flex-grow bg-slate-800 ml-8"></div>
+      </div>
 
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        <!-- Tutorial Card 1 -->
-        <a
-          href="diapos_intro_r/pres.html"
-          class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition"
-        >
-          <div class="relative pb-2/3 h-48">
-            <img
-              src="images/intro_r.png"
-              alt="Analyse de régression"
-              class="absolute h-full w-full object-cover"
-            />
-            <div
-              class="absolute inset-0 bg-black bg-opacity-20 flex items-center justify-center"
-            >
-              <i data-feather="play-circle" class="text-white w-12 h-12"></i>
-            </div>
+        
+        <!-- Video 1 -->
+        <article class="group glass-panel rounded-2xl overflow-hidden hover:border-accent-purple/50 transition-all duration-300 hover:transform hover:-translate-y-2 hover:shadow-2xl">
+          <div class="relative aspect-video bg-black/50 overflow-hidden">
+            <iframe 
+              src="https://www.youtube.com/embed/T9_B7vwGnBs" 
+              title="Concepts de base de GitHub" 
+              class="absolute inset-0 w-full h-full" 
+              frameborder="0" 
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+              allowfullscreen>
+            </iframe>
           </div>
           <div class="p-6">
-            <div class="flex justify-between items-start">
-              <div>
-                <h3 class="font-bold text-xl mb-2">
-                  Analyse de régression en science politique
-                </h3>
-                <p class="text-gray-600">
-                  Apprenez à appliquer des modèles de régression aux données politiques
-                </p>
-              </div>
-              <span
-                class="bg-secondary text-primary text-xs font-semibold px-2 py-1 rounded"
-                >45 min</span
-              >
+            <div class="flex items-center gap-2 mb-3">
+              <span class="px-2 py-1 rounded text-xs font-bold bg-accent-purple/10 text-accent-purple border border-accent-purple/20">GIT</span>
+              <span class="text-slate-500 text-xs">Débutant</span>
             </div>
-            <div class="mt-4 flex items-center text-sm text-gray-500">
-              <i data-feather="file-text" class="mr-1"></i>
-              <span>Inclut les diapositives</span>
-            </div>
+            <h3 class="font-display text-xl font-bold mb-2 group-hover:text-accent-purple transition-colors">Concepts de base de GitHub</h3>
+            <p class="text-slate-400 text-sm leading-relaxed">
+              Comprendre les fondements du contrôle de version, les commits, les branches et l'écosystème collaboratif de GitHub.
+            </p>
           </div>
-        </a>
+        </article>
 
-        <!-- Tutorial Card 2 -->
-        <a
-          href="diapos_analyse_r/pres.html"
-          class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition"
-        >
-          <div class="relative pb-2/3 h-48">
-            <img
-              src="images/intro_analyse_r.png"
-              alt="Méthodes de sondage"
-              class="absolute h-full w-full object-cover"
-            />
-            <div
-              class="absolute inset-0 bg-black bg-opacity-20 flex items-center justify-center"
-            >
-              <i data-feather="play-circle" class="text-white w-12 h-12"></i>
-            </div>
+        <!-- Video 2 -->
+        <article class="group glass-panel rounded-2xl overflow-hidden hover:border-accent-cyan/50 transition-all duration-300 hover:transform hover:-translate-y-2 hover:shadow-2xl">
+          <div class="relative aspect-video bg-black/50 overflow-hidden">
+             <iframe 
+              src="https://www.youtube.com/embed/WCMJMIuBr8o" 
+              title="Télécharger Git Linux" 
+              class="absolute inset-0 w-full h-full" 
+              frameborder="0" 
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+              allowfullscreen>
+            </iframe>
           </div>
           <div class="p-6">
-            <div class="flex justify-between items-start">
-              <div>
-                <h3 class="font-bold text-xl mb-2">
-                  Méthodologie des sondages politiques
-                </h3>
-                <p class="text-gray-600">
-                  Concevoir et analyser des sondages politiques
-                </p>
-              </div>
-              <span
-                class="bg-secondary text-primary text-xs font-semibold px-2 py-1 rounded"
-                >38 min</span
-              >
+            <div class="flex items-center gap-2 mb-3">
+              <span class="px-2 py-1 rounded text-xs font-bold bg-orange-500/10 text-orange-400 border border-orange-500/20">LINUX</span>
             </div>
-            <div class="mt-4 flex items-center text-sm text-gray-500">
-              <i data-feather="file-text" class="mr-1"></i>
-              <span>Inclut les diapositives</span>
-            </div>
+            <h3 class="font-display text-xl font-bold mb-2 group-hover:text-accent-cyan transition-colors">Installation Git sur Linux</h3>
+            <p class="text-slate-400 text-sm leading-relaxed">
+              Guide complet pour installer et configurer Git sur les distributions Linux. Les commandes essentielles du terminal.
+            </p>
           </div>
-        </a>
+        </article>
 
-        <!-- Tutorial Card 3 -->
-        <a
-          href="time-series.html"
-          class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition"
-        >
-          <div class="relative pb-2/3 h-48">
-            <img
-              src="http://static.photos/finance/640x360/3"
-              alt="Analyse de séries temporelles"
-              class="absolute h-full w-full object-cover"
-            />
-            <div
-              class="absolute inset-0 bg-black bg-opacity-20 flex items-center justify-center"
-            >
-              <i data-feather="play-circle" class="text-white w-12 h-12"></i>
-            </div>
+        <!-- Video 3 -->
+        <article class="group glass-panel rounded-2xl overflow-hidden hover:border-gray-500/50 transition-all duration-300 hover:transform hover:-translate-y-2 hover:shadow-2xl">
+          <div class="relative aspect-video bg-black/50 overflow-hidden">
+             <iframe 
+              src="https://www.youtube.com/embed/f5AziMHmPAU" 
+              title="Télécharger Git Mac" 
+              class="absolute inset-0 w-full h-full" 
+              frameborder="0" 
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+              allowfullscreen>
+            </iframe>
           </div>
           <div class="p-6">
-            <div class="flex justify-between items-start">
-              <div>
-                <h3 class="font-bold text-xl mb-2">
-                  Séries temporelles en recherche politique
-                </h3>
-                <p class="text-gray-600">
-                  Analyser les tendances politiques dans le temps
-                </p>
-              </div>
-              <span
-                class="bg-secondary text-primary text-xs font-semibold px-2 py-1 rounded"
-                >52 min</span
-              >
+            <div class="flex items-center gap-2 mb-3">
+              <span class="px-2 py-1 rounded text-xs font-bold bg-gray-100/10 text-gray-300 border border-gray-100/20">MACOS</span>
             </div>
-            <div class="mt-4 flex items-center text-sm text-gray-500">
-              <i data-feather="file-text" class="mr-1"></i>
-              <span>Inclut les diapositives</span>
-            </div>
+            <h3 class="font-display text-xl font-bold mb-2 group-hover:text-white transition-colors">Installation Git sur Mac</h3>
+            <p class="text-slate-400 text-sm leading-relaxed">
+              Tutoriel pas à pas pour les utilisateurs Apple. Installation via Homebrew ou l'installateur officiel.
+            </p>
           </div>
-        </a>
+        </article>
+
+        <!-- Video 4 -->
+        <article class="group glass-panel rounded-2xl overflow-hidden hover:border-blue-500/50 transition-all duration-300 hover:transform hover:-translate-y-2 hover:shadow-2xl">
+          <div class="relative aspect-video bg-black/50 overflow-hidden">
+             <iframe 
+              src="https://www.youtube.com/embed/_PBrccEKDBY" 
+              title="Télécharger Git Windows" 
+              class="absolute inset-0 w-full h-full" 
+              frameborder="0" 
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+              allowfullscreen>
+            </iframe>
+          </div>
+          <div class="p-6">
+            <div class="flex items-center gap-2 mb-3">
+              <span class="px-2 py-1 rounded text-xs font-bold bg-blue-500/10 text-blue-400 border border-blue-500/20">WINDOWS</span>
+            </div>
+            <h3 class="font-display text-xl font-bold mb-2 group-hover:text-blue-400 transition-colors">Installation Git sur Windows</h3>
+            <p class="text-slate-400 text-sm leading-relaxed">
+              Configuration de Git Bash et de l'environnement de développement sur Windows pour éviter les pièges courants.
+            </p>
+          </div>
+        </article>
+
+        <!-- Video 5 -->
+        <article class="group glass-panel rounded-2xl overflow-hidden hover:border-green-500/50 transition-all duration-300 hover:transform hover:-translate-y-2 hover:shadow-2xl">
+          <div class="relative aspect-video bg-black/50 overflow-hidden">
+             <iframe 
+              src="https://www.youtube.com/embed/-irxidjj4UM" 
+              title="Introduction à LaTeX" 
+              class="absolute inset-0 w-full h-full" 
+              frameborder="0" 
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+              allowfullscreen>
+            </iframe>
+          </div>
+          <div class="p-6">
+            <div class="flex items-center gap-2 mb-3">
+              <span class="px-2 py-1 rounded text-xs font-bold bg-green-500/10 text-green-400 border border-green-500/20">LATEX</span>
+            </div>
+            <h3 class="font-display text-xl font-bold mb-2 group-hover:text-green-400 transition-colors">Introduction à LaTeX et Overleaf</h3>
+            <p class="text-slate-400 text-sm leading-relaxed">
+              Découvrez la puissance de LaTeX pour la rédaction scientifique. Premiers pas avec l'éditeur collaboratif Overleaf.
+            </p>
+          </div>
+        </article>
+
+         <!-- Video 6 -->
+        <article class="group glass-panel rounded-2xl overflow-hidden hover:border-blue-600/50 transition-all duration-300 hover:transform hover:-translate-y-2 hover:shadow-2xl">
+          <div class="relative aspect-video bg-black/50 overflow-hidden">
+             <iframe 
+              src="https://www.youtube.com/embed/0ROtPcOvyFM" 
+              title="Introduction à R" 
+              class="absolute inset-0 w-full h-full" 
+              frameborder="0" 
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+              allowfullscreen>
+            </iframe>
+          </div>
+          <div class="p-6">
+            <div class="flex items-center gap-2 mb-3">
+              <span class="px-2 py-1 rounded text-xs font-bold bg-blue-600/10 text-blue-400 border border-blue-600/20">RSTATS</span>
+            </div>
+            <h3 class="font-display text-xl font-bold mb-2 group-hover:text-blue-400 transition-colors">Introduction à R</h3>
+            <p class="text-slate-400 text-sm leading-relaxed">
+              Familiarisez-vous avec le langage R. Installation, concepts de base et découverte de l'interface.
+            </p>
+          </div>
+        </article>
+
+         <!-- Video 7 -->
+        <article class="group glass-panel rounded-2xl overflow-hidden hover:border-blue-400/50 transition-all duration-300 hover:transform hover:-translate-y-2 hover:shadow-2xl">
+          <div class="relative aspect-video bg-black/50 overflow-hidden">
+             <iframe 
+              src="https://www.youtube.com/embed/Qv8dwsShtMc" 
+              title="Analyse de données avec R" 
+              class="absolute inset-0 w-full h-full" 
+              frameborder="0" 
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+              allowfullscreen>
+            </iframe>
+          </div>
+          <div class="p-6">
+            <div class="flex items-center gap-2 mb-3">
+              <span class="px-2 py-1 rounded text-xs font-bold bg-blue-400/10 text-blue-300 border border-blue-400/20">ANALYSE</span>
+            </div>
+            <h3 class="font-display text-xl font-bold mb-2 group-hover:text-blue-300 transition-colors">Analyse de données avec R</h3>
+            <p class="text-slate-400 text-sm leading-relaxed">
+              Plongez dans l'analyse quantitative. Importation de données, manipulation et premières statistiques descriptives.
+            </p>
+          </div>
+        </article>
+
+         <!-- Video 8 -->
+        <article class="group glass-panel rounded-2xl overflow-hidden hover:border-red-500/50 transition-all duration-300 hover:transform hover:-translate-y-2 hover:shadow-2xl">
+          <div class="relative aspect-video bg-black/50 overflow-hidden">
+             <iframe 
+              src="https://www.youtube.com/embed/Y1mY9-dIEQU" 
+              title="Zotero" 
+              class="absolute inset-0 w-full h-full" 
+              frameborder="0" 
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+              allowfullscreen>
+            </iframe>
+          </div>
+          <div class="p-6">
+            <div class="flex items-center gap-2 mb-3">
+              <span class="px-2 py-1 rounded text-xs font-bold bg-red-500/10 text-red-400 border border-red-500/20">RECHERCHE</span>
+            </div>
+            <h3 class="font-display text-xl font-bold mb-2 group-hover:text-red-400 transition-colors">Zotero pour la recherche</h3>
+            <p class="text-slate-400 text-sm leading-relaxed">
+              Optimisez votre flux de travail académique. Gestion des références, citations automatiques et organisation des sources.
+            </p>
+          </div>
+        </article>
+
+         <!-- Video 9 -->
+        <article class="group glass-panel rounded-2xl overflow-hidden hover:border-accent-pink/50 transition-all duration-300 hover:transform hover:-translate-y-2 hover:shadow-2xl">
+          <div class="relative aspect-video bg-black/50 overflow-hidden">
+             <iframe 
+              src="https://www.youtube.com/embed/QJMJ8WrAkx0" 
+              title="Collaboration GitHub" 
+              class="absolute inset-0 w-full h-full" 
+              frameborder="0" 
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+              allowfullscreen>
+            </iframe>
+          </div>
+          <div class="p-6">
+            <div class="flex items-center gap-2 mb-3">
+              <span class="px-2 py-1 rounded text-xs font-bold bg-accent-pink/10 text-accent-pink border border-accent-pink/20">ADVANCED</span>
+            </div>
+            <h3 class="font-display text-xl font-bold mb-2 group-hover:text-accent-pink transition-colors">Collaboration & Bonnes Pratiques</h3>
+            <p class="text-slate-400 text-sm leading-relaxed">
+              Travailler efficacement en équipe sur GitHub. Pull requests, résolution de conflits et hygiène du code.
+            </p>
+          </div>
+        </article>
+
       </div>
-    </section>
-
-    <!-- Resources Section -->
-    <section id="ressources" class="bg-gray-100 py-16">
-      <div class="container mx-auto px-6">
-        <h2 class="text-3xl font-bold text-center mb-12 text-gray-800">
-          Ressources pour apprendre
-        </h2>
-        <div class="space-y-12">
-          <!-- R Resources -->
-          <div class="bg-white rounded-xl shadow-lg p-8">
-            <div class="flex items-center mb-6">
-              <div class="w-16 h-16 bg-blue-600 rounded-lg flex items-center justify-center mr-4">
-                <i data-feather="bar-chart-2" class="text-white w-8 h-8"></i>
-              </div>
-              <div>
-                <h3 class="text-3xl font-bold text-gray-800">R</h3>
-                <p class="text-gray-600">Langage de programmation pour l'analyse statistique</p>
-              </div>
-            </div>
-            <p class="text-gray-700 mb-6">
-              R est un langage et un environnement pour le calcul statistique et la visualisation de données,
-              largement utilisé en science politique pour l'analyse quantitative.
-            </p>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-              <a href="https://cran.r-project.org/" target="_blank"
-                 class="flex items-start p-4 border border-gray-200 rounded-lg hover:shadow-md transition">
-                <i data-feather="download" class="mr-3 text-blue-600 flex-shrink-0"></i>
-                <div>
-                  <h4 class="font-bold">Télécharger R</h4>
-                  <p class="text-sm text-gray-600">CRAN - The Comprehensive R Archive Network</p>
-                </div>
-              </a>
-              <a href="https://positron.posit.co/" target="_blank"
-                 class="flex items-start p-4 border border-gray-200 rounded-lg hover:shadow-md transition">
-                <i data-feather="code" class="mr-3 text-blue-600 flex-shrink-0"></i>
-                <div>
-                  <h4 class="font-bold">Positron</h4>
-                  <p class="text-sm text-gray-600">IDE moderne pour R et Python</p>
-                </div>
-              </a>
-              <a href="https://r4ds.hadley.nz/" target="_blank"
-                 class="flex items-start p-4 border border-gray-200 rounded-lg hover:shadow-md transition">
-                <i data-feather="book-open" class="mr-3 text-blue-600 flex-shrink-0"></i>
-                <div>
-                  <h4 class="font-bold">R for Data Science</h4>
-                  <p class="text-sm text-gray-600">Livre gratuit par Hadley Wickham & Garrett Grolemund</p>
-                </div>
-              </a>
-              <a href="https://www.tidyverse.org/" target="_blank"
-                 class="flex items-start p-4 border border-gray-200 rounded-lg hover:shadow-md transition">
-                <i data-feather="package" class="mr-3 text-blue-600 flex-shrink-0"></i>
-                <div>
-                  <h4 class="font-bold">Tidyverse</h4>
-                  <p class="text-sm text-gray-600">Collection de packages R pour la science des données</p>
-                </div>
-              </a>
-              <a href="https://www.rstudio.com/resources/cheatsheets/" target="_blank"
-                 class="flex items-start p-4 border border-gray-200 rounded-lg hover:shadow-md transition">
-                <i data-feather="file-text" class="mr-3 text-blue-600 flex-shrink-0"></i>
-                <div>
-                  <h4 class="font-bold">Cheat Sheets</h4>
-                  <p class="text-sm text-gray-600">Aide-mémoires pour les packages R populaires</p>
-                </div>
-              </a>
-              <a href="https://www.datacamp.com/courses/free-introduction-to-r" target="_blank"
-                 class="flex items-start p-4 border border-gray-200 rounded-lg hover:shadow-md transition">
-                <i data-feather="play-circle" class="mr-3 text-blue-600 flex-shrink-0"></i>
-                <div>
-                  <h4 class="font-bold">Introduction à R (DataCamp)</h4>
-                  <p class="text-sm text-gray-600">Cours interactif gratuit pour débutants</p>
-                </div>
-              </a>
-            </div>
-          </div>
-
-          <!-- Zotero Resources -->
-          <div class="bg-white rounded-xl shadow-lg p-8">
-            <div class="flex items-center mb-6">
-              <div class="w-16 h-16 bg-red-600 rounded-lg flex items-center justify-center mr-4">
-                <i data-feather="bookmark" class="text-white w-8 h-8"></i>
-              </div>
-              <div>
-                <h3 class="text-3xl font-bold text-gray-800">Zotero</h3>
-                <p class="text-gray-600">Gestionnaire de références bibliographiques</p>
-              </div>
-            </div>
-            <p class="text-gray-700 mb-6">
-              Zotero est un outil gratuit et open source pour gérer vos références bibliographiques,
-              organiser vos sources et générer des citations et bibliographies automatiquement.
-            </p>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-              <a href="https://www.zotero.org/" target="_blank"
-                 class="flex items-start p-4 border border-gray-200 rounded-lg hover:shadow-md transition">
-                <i data-feather="download" class="mr-3 text-red-600 flex-shrink-0"></i>
-                <div>
-                  <h4 class="font-bold">Télécharger Zotero</h4>
-                  <p class="text-sm text-gray-600">Site officiel - gratuit pour Windows, Mac et Linux</p>
-                </div>
-              </a>
-              <a href="https://www.zotero.org/support/quick_start_guide" target="_blank"
-                 class="flex items-start p-4 border border-gray-200 rounded-lg hover:shadow-md transition">
-                <i data-feather="zap" class="mr-3 text-red-600 flex-shrink-0"></i>
-                <div>
-                  <h4 class="font-bold">Guide de démarrage rapide</h4>
-                  <p class="text-sm text-gray-600">Documentation officielle pour commencer</p>
-                </div>
-              </a>
-              <a href="https://www.zotero.org/support/plugins" target="_blank"
-                 class="flex items-start p-4 border border-gray-200 rounded-lg hover:shadow-md transition">
-                <i data-feather="puzzle" class="mr-3 text-red-600 flex-shrink-0"></i>
-                <div>
-                  <h4 class="font-bold">Plugins Zotero</h4>
-                  <p class="text-sm text-gray-600">Extensions pour améliorer Zotero</p>
-                </div>
-              </a>
-              <a href="https://www.zotero.org/support/word_processor_integration" target="_blank"
-                 class="flex items-start p-4 border border-gray-200 rounded-lg hover:shadow-md transition">
-                <i data-feather="edit" class="mr-3 text-red-600 flex-shrink-0"></i>
-                <div>
-                  <h4 class="font-bold">Intégration Word/LibreOffice</h4>
-                  <p class="text-sm text-gray-600">Insérer des citations dans vos documents</p>
-                </div>
-              </a>
-              <a href="https://www.zotero.org/styles" target="_blank"
-                 class="flex items-start p-4 border border-gray-200 rounded-lg hover:shadow-md transition">
-                <i data-feather="list" class="mr-3 text-red-600 flex-shrink-0"></i>
-                <div>
-                  <h4 class="font-bold">Styles de citation</h4>
-                  <p class="text-sm text-gray-600">Plus de 10,000 styles bibliographiques (APA, MLA, Chicago, etc.)</p>
-                </div>
-              </a>
-              <a href="https://www.zotero.org/groups/" target="_blank"
-                 class="flex items-start p-4 border border-gray-200 rounded-lg hover:shadow-md transition">
-                <i data-feather="users" class="mr-3 text-red-600 flex-shrink-0"></i>
-                <div>
-                  <h4 class="font-bold">Groupes Zotero</h4>
-                  <p class="text-sm text-gray-600">Collaborer et partager des bibliothèques</p>
-                </div>
-              </a>
-            </div>
-          </div>
-
-          <!-- LaTeX Resources -->
-          <div class="bg-white rounded-xl shadow-lg p-8">
-            <div class="flex items-center mb-6">
-              <div class="w-16 h-16 bg-green-600 rounded-lg flex items-center justify-center mr-4">
-                <i data-feather="file-text" class="text-white w-8 h-8"></i>
-              </div>
-              <div>
-                <h3 class="text-3xl font-bold text-gray-800">LaTeX</h3>
-                <p class="text-gray-600">Système de composition de documents scientifiques</p>
-              </div>
-            </div>
-            <p class="text-gray-700 mb-6">
-              LaTeX est un système de composition de haute qualité, particulièrement adapté pour
-              la production de documents scientifiques et techniques contenant des formules mathématiques complexes.
-            </p>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-              <a href="https://www.overleaf.com/" target="_blank"
-                 class="flex items-start p-4 border border-gray-200 rounded-lg hover:shadow-md transition">
-                <i data-feather="edit-3" class="mr-3 text-green-600 flex-shrink-0"></i>
-                <div>
-                  <h4 class="font-bold">Overleaf</h4>
-                  <p class="text-sm text-gray-600">Éditeur LaTeX en ligne collaboratif gratuit</p>
-                </div>
-              </a>
-              <a href="https://www.latex-project.org/get/" target="_blank"
-                 class="flex items-start p-4 border border-gray-200 rounded-lg hover:shadow-md transition">
-                <i data-feather="download" class="mr-3 text-green-600 flex-shrink-0"></i>
-                <div>
-                  <h4 class="font-bold">Installer LaTeX</h4>
-                  <p class="text-sm text-gray-600">Distributions TeX pour votre système d'exploitation</p>
-                </div>
-              </a>
-              <a href="https://www.overleaf.com/learn/latex/Learn_LaTeX_in_30_minutes" target="_blank"
-                 class="flex items-start p-4 border border-gray-200 rounded-lg hover:shadow-md transition">
-                <i data-feather="clock" class="mr-3 text-green-600 flex-shrink-0"></i>
-                <div>
-                  <h4 class="font-bold">Apprendre LaTeX en 30 minutes</h4>
-                  <p class="text-sm text-gray-600">Tutoriel rapide pour débutants</p>
-                </div>
-              </a>
-              <a href="https://www.overleaf.com/latex/templates" target="_blank"
-                 class="flex items-start p-4 border border-gray-200 rounded-lg hover:shadow-md transition">
-                <i data-feather="layout" class="mr-3 text-green-600 flex-shrink-0"></i>
-                <div>
-                  <h4 class="font-bold">Templates LaTeX</h4>
-                  <p class="text-sm text-gray-600">Modèles gratuits pour articles, thèses, présentations</p>
-                </div>
-              </a>
-              <a href="https://www.ctan.org/" target="_blank"
-                 class="flex items-start p-4 border border-gray-200 rounded-lg hover:shadow-md transition">
-                <i data-feather="archive" class="mr-3 text-green-600 flex-shrink-0"></i>
-                <div>
-                  <h4 class="font-bold">CTAN</h4>
-                  <p class="text-sm text-gray-600">Archive complète de packages LaTeX</p>
-                </div>
-              </a>
-              <a href="https://en.wikibooks.org/wiki/LaTeX" target="_blank"
-                 class="flex items-start p-4 border border-gray-200 rounded-lg hover:shadow-md transition">
-                <i data-feather="book" class="mr-3 text-green-600 flex-shrink-0"></i>
-                <div>
-                  <h4 class="font-bold">LaTeX Wikibook</h4>
-                  <p class="text-sm text-gray-600">Guide complet et gratuit sur LaTeX</p>
-                </div>
-              </a>
-            </div>
-          </div>
-
-          <!-- Git & GitHub Resources -->
-          <div class="bg-white rounded-xl shadow-lg p-8">
-            <div class="flex items-center mb-6">
-              <div class="w-16 h-16 bg-gray-800 rounded-lg flex items-center justify-center mr-4">
-                <i data-feather="git-branch" class="text-white w-8 h-8"></i>
-              </div>
-              <div>
-                <h3 class="text-3xl font-bold text-gray-800">Git & GitHub</h3>
-                <p class="text-gray-600">Contrôle de version et collaboration de code</p>
-              </div>
-            </div>
-            <p class="text-gray-700 mb-6">
-              Git est un système de contrôle de version distribué permettant de suivre les modifications
-              de vos projets. GitHub est une plateforme web qui facilite la collaboration et le partage de code.
-            </p>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-              <a href="https://git-scm.com/" target="_blank"
-                 class="flex items-start p-4 border border-gray-200 rounded-lg hover:shadow-md transition">
-                <i data-feather="download" class="mr-3 text-gray-800 flex-shrink-0"></i>
-                <div>
-                  <h4 class="font-bold">Télécharger Git</h4>
-                  <p class="text-sm text-gray-600">Site officiel de Git</p>
-                </div>
-              </a>
-              <a href="https://github.com/" target="_blank"
-                 class="flex items-start p-4 border border-gray-200 rounded-lg hover:shadow-md transition">
-                <i data-feather="github" class="mr-3 text-gray-800 flex-shrink-0"></i>
-                <div>
-                  <h4 class="font-bold">GitHub</h4>
-                  <p class="text-sm text-gray-600">Créer un compte gratuit sur GitHub</p>
-                </div>
-              </a>
-              <a href="https://git-scm.com/book/fr/v2" target="_blank"
-                 class="flex items-start p-4 border border-gray-200 rounded-lg hover:shadow-md transition">
-                <i data-feather="book-open" class="mr-3 text-gray-800 flex-shrink-0"></i>
-                <div>
-                  <h4 class="font-bold">Pro Git (Français)</h4>
-                  <p class="text-sm text-gray-600">Livre complet et gratuit sur Git</p>
-                </div>
-              </a>
-              <a href="https://docs.github.com/fr/get-started/quickstart" target="_blank"
-                 class="flex items-start p-4 border border-gray-200 rounded-lg hover:shadow-md transition">
-                <i data-feather="zap" class="mr-3 text-gray-800 flex-shrink-0"></i>
-                <div>
-                  <h4 class="font-bold">Guide de démarrage GitHub</h4>
-                  <p class="text-sm text-gray-600">Documentation officielle en français</p>
-                </div>
-              </a>
-              <a href="https://learngitbranching.js.org/?locale=fr_FR" target="_blank"
-                 class="flex items-start p-4 border border-gray-200 rounded-lg hover:shadow-md transition">
-                <i data-feather="play-circle" class="mr-3 text-gray-800 flex-shrink-0"></i>
-                <div>
-                  <h4 class="font-bold">Learn Git Branching</h4>
-                  <p class="text-sm text-gray-600">Tutoriel interactif pour apprendre Git</p>
-                </div>
-              </a>
-              <a href="https://desktop.github.com/" target="_blank"
-                 class="flex items-start p-4 border border-gray-200 rounded-lg hover:shadow-md transition">
-                <i data-feather="monitor" class="mr-3 text-gray-800 flex-shrink-0"></i>
-                <div>
-                  <h4 class="font-bold">GitHub Desktop</h4>
-                  <p class="text-sm text-gray-600">Interface graphique pour Git (Windows & Mac)</p>
-                </div>
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Team Section -->
-    <section id="equipe" class="bg-secondary py-16">
-      <div class="container mx-auto px-6">
-        <h2 class="text-3xl font-bold text-center mb-12 text-gray-800">
-          Notre Équipe
-        </h2>
-
-        <div class="team-scroll-container">
-          <!-- Team Member 1 -->
-          <a href="team/member-1.html" class="team-member-card bg-white rounded-lg shadow-md overflow-hidden hover:shadow-xl transition group">
-            <div class="aspect-square overflow-hidden">
-              <img
-                src="http://static.photos/people/400x400/1"
-                alt="Membre de l'équipe 1"
-                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-              />
-            </div>
-            <div class="p-4 text-center">
-              <h3 class="font-bold text-lg mb-1">Nom du membre 1</h3>
-              <p class="text-gray-600 text-xs">Titre / Fonction</p>
-            </div>
-          </a>
-
-          <!-- Team Member 2 -->
-          <a href="team/member-2.html" class="team-member-card bg-white rounded-lg shadow-md overflow-hidden hover:shadow-xl transition group">
-            <div class="aspect-square overflow-hidden">
-              <img
-                src="http://static.photos/people/400x400/2"
-                alt="Membre de l'équipe 2"
-                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-              />
-            </div>
-            <div class="p-4 text-center">
-              <h3 class="font-bold text-lg mb-1">Nom du membre 2</h3>
-              <p class="text-gray-600 text-xs">Titre / Fonction</p>
-            </div>
-          </a>
-
-          <!-- Team Member 3 -->
-          <a href="team/member-3.html" class="team-member-card bg-white rounded-lg shadow-md overflow-hidden hover:shadow-xl transition group">
-            <div class="aspect-square overflow-hidden">
-              <img
-                src="http://static.photos/people/400x400/3"
-                alt="Membre de l'équipe 3"
-                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-              />
-            </div>
-            <div class="p-4 text-center">
-              <h3 class="font-bold text-lg mb-1">Nom du membre 3</h3>
-              <p class="text-gray-600 text-xs">Titre / Fonction</p>
-            </div>
-          </a>
-
-          <!-- Team Member 4 -->
-          <a href="team/member-4.html" class="team-member-card bg-white rounded-lg shadow-md overflow-hidden hover:shadow-xl transition group">
-            <div class="aspect-square overflow-hidden">
-              <img
-                src="http://static.photos/people/400x400/4"
-                alt="Membre de l'équipe 4"
-                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-              />
-            </div>
-            <div class="p-4 text-center">
-              <h3 class="font-bold text-lg mb-1">Nom du membre 4</h3>
-              <p class="text-gray-600 text-xs">Titre / Fonction</p>
-            </div>
-          </a>
-
-          <!-- Team Member 5 -->
-          <a href="team/member-5.html" class="team-member-card bg-white rounded-lg shadow-md overflow-hidden hover:shadow-xl transition group">
-            <div class="aspect-square overflow-hidden">
-              <img
-                src="http://static.photos/people/400x400/5"
-                alt="Membre de l'équipe 5"
-                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-              />
-            </div>
-            <div class="p-4 text-center">
-              <h3 class="font-bold text-lg mb-1">Nom du membre 5</h3>
-              <p class="text-gray-600 text-xs">Titre / Fonction</p>
-            </div>
-          </a>
-
-          <!-- Team Member 6 -->
-          <a href="team/member-6.html" class="team-member-card bg-white rounded-lg shadow-md overflow-hidden hover:shadow-xl transition group">
-            <div class="aspect-square overflow-hidden">
-              <img
-                src="http://static.photos/people/400x400/6"
-                alt="Membre de l'équipe 6"
-                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-              />
-            </div>
-            <div class="p-4 text-center">
-              <h3 class="font-bold text-lg mb-1">Nom du membre 6</h3>
-              <p class="text-gray-600 text-xs">Titre / Fonction</p>
-            </div>
-          </a>
-        </div>
-      </div>
-    </section>
+    </main>
 
     <!-- Footer -->
-    <footer class="bg-gray-800 text-white py-12">
+    <footer class="border-t border-slate-800 bg-dark-900/50 backdrop-blur-sm py-12 relative z-10">
       <div class="container mx-auto px-6">
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-          <div>
-            <img
-              src="http://static.photos/legal/200x200/1"
-              alt="Logo de l'organisation"
-              class="h-16 w-16 rounded-full mb-4"
-            />
-            <p class="text-gray-300">
-              Faire avancer la recherche en science politique grâce à l'enseignement des méthodes quantitatives.
-            </p>
+        <div class="flex flex-col md:flex-row justify-between items-center">
+          <div class="mb-6 md:mb-0">
+             <div class="flex items-center space-x-2">
+                <i data-feather="box" class="text-accent-cyan w-5 h-5"></i>
+                <span class="text-lg font-display font-bold text-slate-200">CAPP<span class="text-slate-500">.métho</span></span>
+             </div>
+             <p class="text-slate-500 text-sm mt-2">Centre d'Analyse des Politiques Publiques</p>
           </div>
-          <div>
-            <h4 class="font-bold text-lg mb-4">Navigation</h4>
-            <ul class="space-y-2">
-              <li>
-                <a href="index.html#capsules" class="text-gray-300 hover:text-white transition"
-                  >Nos capsules</a
-                >
-              </li>
-              <li>
-                <a href="index.html#ressources" class="text-gray-300 hover:text-white transition"
-                  >Ressources</a
-                >
-              </li>
-              <li>
-                <a href="index.html#equipe" class="text-gray-300 hover:text-white transition"
-                  >Notre équipe</a
-                >
-              </li>
-            </ul>
-          </div>
-          <div>
-            <h4 class="font-bold text-lg mb-4">Connexion</h4>
-            <div class="flex space-x-4">
-              <a href="#" class="text-gray-300 hover:text-white transition"
-                ><i data-feather="twitter"></i
-              ></a>
-              <a href="#" class="text-gray-300 hover:text-white transition"
-                ><i data-feather="youtube"></i
-              ></a>
-              <a href="#" class="text-gray-300 hover:text-white transition"
-                ><i data-feather="github"></i
-              ></a>
-              <a href="#" class="text-gray-300 hover:text-white transition"
-                ><i data-feather="linkedin"></i
-              ></a>
-            </div>
+          
+          <div class="flex space-x-6">
+             <a href="#" class="text-slate-400 hover:text-white transition"><i data-feather="github"></i></a>
+             <a href="#" class="text-slate-400 hover:text-white transition"><i data-feather="youtube"></i></a>
+             <a href="#" class="text-slate-400 hover:text-white transition"><i data-feather="twitter"></i></a>
           </div>
         </div>
-        <div
-          class="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400"
-        >
-          <p>© 2023 Capsules du CAPP. Tous droits réservés.</p>
+        <div class="mt-8 text-center md:text-left text-slate-600 text-sm">
+          &copy; 2026 CAPP. Tous droits réservés. Design propulsé par Gemini.
         </div>
       </div>
     </footer>
 
-    <script src="assets/main.js"></script>
+    <script>
+      feather.replace();
+    </script>
   </body>
 </html>
