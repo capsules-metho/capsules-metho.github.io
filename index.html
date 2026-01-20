@@ -9,7 +9,7 @@
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&family=Space+Grotesk:wght@300;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     
     <!-- Icons -->
     <script src="https://unpkg.com/feather-icons"></script>
@@ -18,7 +18,6 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
       tailwind.config = {
-        darkMode: 'class',
         theme: {
           extend: {
             fontFamily: {
@@ -26,29 +25,32 @@
               display: ['Space Grotesk', 'sans-serif'],
             },
             colors: {
-              dark: {
-                900: '#0f172a',
-                800: '#1e293b',
-                700: '#334155',
+              ulaval: {
+                red: '#E30513',      /* Rouge ULaval approx */
+                darkred: '#990000',
+                gold: '#FFC107',     /* Or jaune */
+                yellow: '#FCD34D'
               },
-              accent: {
-                purple: '#8b5cf6',
-                cyan: '#06b6d4',
-                pink: '#ec4899'
+              neutral: {
+                50: '#F9FAFB',
+                100: '#F3F4F6',
+                900: '#111827'
               }
             },
+            boxShadow: {
+              'soft': '0 10px 40px -10px rgba(0,0,0,0.08)',
+              'glow': '0 0 20px rgba(227, 5, 19, 0.15)'
+            },
             animation: {
-              'blob': 'blob 7s infinite',
-              'fade-in': 'fadeIn 1s ease-out',
+              'float': 'float 6s ease-in-out infinite',
+              'fade-in-up': 'fadeInUp 0.8s ease-out forwards',
             },
             keyframes: {
-              blob: {
-                '0%': { transform: 'translate(0px, 0px) scale(1)' },
-                '33%': { transform: 'translate(30px, -50px) scale(1.1)' },
-                '66%': { transform: 'translate(-20px, 20px) scale(0.9)' },
-                '100%': { transform: 'translate(0px, 0px) scale(1)' },
+              float: {
+                '0%, 100%': { transform: 'translateY(0)' },
+                '50%': { transform: 'translateY(-10px)' },
               },
-              fadeIn: {
+              fadeInUp: {
                 '0%': { opacity: '0', transform: 'translateY(20px)' },
                 '100%': { opacity: '1', transform: 'translateY(0)' },
               }
@@ -60,343 +62,310 @@
 
     <style>
       body {
-        background-color: #0f172a;
-        color: #f8fafc;
+        background-color: #ffffff;
+        color: #111827;
       }
       
-      .glass-panel {
-        background: rgba(30, 41, 59, 0.7);
+      .glass-nav {
+        background: rgba(255, 255, 255, 0.85);
         backdrop-filter: blur(12px);
         -webkit-backdrop-filter: blur(12px);
-        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-bottom: 1px solid rgba(0,0,0,0.05);
       }
 
-      .gradient-text {
-        background: linear-gradient(135deg, #67e8f9 0%, #a855f7 100%);
+      .text-gradient-ul {
+        background: linear-gradient(135deg, #E30513 0%, #FFC107 100%);
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
       }
 
-      .video-card:hover .play-overlay {
-        opacity: 0;
-        pointer-events: none;
+      .section-title {
+        position: relative;
+        display: inline-block;
       }
       
+      .section-title::after {
+        content: '';
+        position: absolute;
+        bottom: -8px;
+        left: 0;
+        width: 60px;
+        height: 4px;
+        background: #E30513;
+        border-radius: 2px;
+      }
+
       /* Custom Scrollbar */
       ::-webkit-scrollbar {
         width: 10px;
       }
       ::-webkit-scrollbar-track {
-        background: #0f172a; 
+        background: #F3F4F6; 
       }
       ::-webkit-scrollbar-thumb {
-        background: #334155; 
+        background: #D1D5DB; 
         border-radius: 5px;
       }
       ::-webkit-scrollbar-thumb:hover {
-        background: #475569; 
+        background: #9CA3AF; 
       }
     </style>
   </head>
-  <body class="antialiased overflow-x-hidden selection:bg-accent-purple selection:text-white">
+  <body class="antialiased selection:bg-ulaval-red selection:text-white">
 
-    <!-- Background Decoration -->
+    <!-- Background Elements -->
     <div class="fixed inset-0 z-[-1] overflow-hidden pointer-events-none">
-      <div class="absolute top-0 left-1/4 w-96 h-96 bg-accent-purple/20 rounded-full mix-blend-screen filter blur-3xl opacity-30 animate-blob"></div>
-      <div class="absolute top-0 right-1/4 w-96 h-96 bg-accent-cyan/20 rounded-full mix-blend-screen filter blur-3xl opacity-30 animate-blob animation-delay-2000"></div>
-      <div class="absolute -bottom-32 left-1/3 w-96 h-96 bg-accent-pink/20 rounded-full mix-blend-screen filter blur-3xl opacity-30 animate-blob animation-delay-4000"></div>
+      <div class="absolute -top-20 right-0 w-[500px] h-[500px] bg-ulaval-gold/5 rounded-full filter blur-3xl opacity-60"></div>
+      <div class="absolute top-1/2 -left-20 w-[400px] h-[400px] bg-ulaval-red/5 rounded-full filter blur-3xl opacity-60"></div>
     </div>
 
     <!-- Navigation -->
-    <nav class="fixed w-full z-50 transition-all duration-300 glass-panel border-b-0">
+    <nav class="fixed w-full z-50 transition-all duration-300 glass-nav">
       <div class="container mx-auto px-6 py-4 flex justify-between items-center">
-        <div class="flex items-center space-x-3 group">
-          <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-accent-cyan to-accent-purple flex items-center justify-center shadow-lg group-hover:shadow-accent-cyan/50 transition-all duration-300">
-            <i data-feather="box" class="text-white w-6 h-6"></i>
+        <div class="flex items-center space-x-3">
+          <div class="w-10 h-10 rounded-lg bg-ulaval-red flex items-center justify-center shadow-lg shadow-ulaval-red/20 text-white">
+            <i data-feather="book-open" class="w-5 h-5"></i>
           </div>
-          <span class="text-xl font-display font-bold tracking-tight">CAPP<span class="text-accent-cyan">.métho</span></span>
+          <span class="text-xl font-display font-bold tracking-tight text-neutral-900">CAPP<span class="text-ulaval-red">.métho</span></span>
         </div>
         
-        <div class="hidden md:flex space-x-8 text-sm font-medium text-slate-300">
-          <a href="#capsules" class="hover:text-white transition-colors relative group">
-            Capsules
-            <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-accent-cyan transition-all group-hover:w-full"></span>
-          </a>
-          <a href="#about" class="hover:text-white transition-colors relative group">
-            À propos
-            <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-accent-purple transition-all group-hover:w-full"></span>
-          </a>
-          <a href="https://github.com/capsules-metho" target="_blank" class="hover:text-white transition-colors">GitHub</a>
+        <div class="hidden md:flex space-x-8 text-sm font-semibold text-gray-600">
+          <a href="#git" class="hover:text-ulaval-red transition-colors">Git/GitHub</a>
+          <a href="#r" class="hover:text-ulaval-red transition-colors">R & Analyse</a>
+          <a href="#latex" class="hover:text-ulaval-red transition-colors">LaTeX</a>
+          <a href="#zotero" class="hover:text-ulaval-red transition-colors">Zotero</a>
         </div>
+
+        <a href="https://github.com/capsules-metho" target="_blank" class="hidden md:flex items-center gap-2 text-sm font-bold text-ulaval-red hover:bg-ulaval-red/5 px-4 py-2 rounded-full transition-all">
+          <i data-feather="github" class="w-4 h-4"></i>
+          <span>GitHub</span>
+        </a>
       </div>
     </nav>
 
     <!-- Hero Section -->
-    <header class="relative pt-32 pb-20 lg:pt-48 lg:pb-32 container mx-auto px-6 text-center z-10">
-      <div class="inline-flex items-center px-4 py-2 rounded-full glass-panel border border-accent-purple/30 text-accent-cyan text-sm font-medium mb-8 animate-fade-in">
-        <span class="flex h-2 w-2 rounded-full bg-accent-cyan mr-2 animate-pulse"></span>
-        Nouveau contenu disponible
-      </div>
-      
-      <h1 class="font-display text-5xl md:text-7xl font-bold tracking-tight mb-8 leading-tight animate-fade-in">
-        La méthodologie <br>
-        <span class="gradient-text">réinventée.</span>
-      </h1>
-      
-      <p class="text-lg md:text-xl text-slate-400 max-w-2xl mx-auto mb-12 animate-fade-in" style="animation-delay: 0.1s;">
-        Une collection de capsules vidéo interactives pour maîtriser les outils essentiels de la recherche en science politique. R, GitHub, LaTeX et plus encore.
-      </p>
-      
-      <div class="flex flex-col sm:flex-row justify-center gap-4 animate-fade-in" style="animation-delay: 0.2s;">
-        <a href="#capsules" class="px-8 py-4 bg-white text-dark-900 rounded-full font-bold hover:bg-slate-200 transition-all shadow-[0_0_20px_rgba(255,255,255,0.3)] hover:shadow-[0_0_30px_rgba(255,255,255,0.5)]">
-          Explorer les capsules
-        </a>
+    <header class="relative pt-32 pb-20 container mx-auto px-6 text-center z-10">
+      <div class="max-w-4xl mx-auto animate-fade-in-up">
+        <div class="inline-flex items-center px-4 py-1.5 rounded-full bg-red-50 border border-red-100 text-ulaval-red text-xs font-bold uppercase tracking-wider mb-8">
+          <span class="flex h-2 w-2 rounded-full bg-ulaval-red mr-2 animate-pulse"></span>
+          Nouvelles capsules disponibles
+        </div>
+        
+        <h1 class="font-display text-5xl md:text-7xl font-bold tracking-tight mb-8 leading-[1.1] text-neutral-900">
+          Méthodes quantitatives <br>
+          <span class="text-gradient-ul">en science politique.</span>
+        </h1>
+        
+        <p class="text-xl text-gray-500 max-w-2xl mx-auto mb-10 leading-relaxed font-light">
+          Une collection complète de capsules vidéo pour maîtriser les outils essentiels de la recherche : R, GitHub, LaTeX et plus encore.
+        </p>
+        
+        <div class="flex flex-col sm:flex-row justify-center gap-4">
+          <a href="#git" class="px-8 py-4 bg-ulaval-red text-white rounded-full font-bold hover:bg-ulaval-darkred transition-all shadow-lg shadow-ulaval-red/30 hover:shadow-ulaval-red/40 transform hover:-translate-y-1">
+            Commencer à apprendre
+          </a>
+          <a href="https://github.com/capsules-metho" target="_blank" class="px-8 py-4 bg-white text-gray-700 border border-gray-200 rounded-full font-bold hover:bg-gray-50 transition-all shadow-sm hover:shadow-md">
+            Voir le code source
+          </a>
+        </div>
       </div>
     </header>
 
-    <!-- Capsules Grid -->
-    <main id="capsules" class="container mx-auto px-6 py-20 relative z-10">
-      <div class="flex items-end justify-between mb-12">
-        <div>
-          <h2 class="font-display text-3xl font-bold mb-2">Catalogue</h2>
-          <p class="text-slate-400">Parcourez nos derniers tutoriels vidéo.</p>
+    <main class="container mx-auto px-6 pb-24 space-y-32">
+      
+      <!-- Section: Git & GitHub -->
+      <section id="git" class="scroll-mt-32">
+        <div class="flex items-center gap-4 mb-12">
+          <div class="w-12 h-12 rounded-2xl bg-gray-900 text-white flex items-center justify-center shadow-soft">
+            <i data-feather="git-branch"></i>
+          </div>
+          <div>
+            <h2 class="font-display text-3xl font-bold text-neutral-900 section-title">Git & GitHub</h2>
+            <p class="text-gray-500 mt-2">Versionnage et collaboration</p>
+          </div>
         </div>
-        <div class="hidden md:block h-px flex-grow bg-slate-800 ml-8"></div>
-      </div>
 
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        
-        <!-- Video 1 -->
-        <article class="group glass-panel rounded-2xl overflow-hidden hover:border-accent-purple/50 transition-all duration-300 hover:transform hover:-translate-y-2 hover:shadow-2xl">
-          <div class="relative aspect-video bg-black/50 overflow-hidden">
-            <iframe 
-              src="https://www.youtube.com/embed/T9_B7vwGnBs" 
-              title="Concepts de base de GitHub" 
-              class="absolute inset-0 w-full h-full" 
-              frameborder="0" 
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-              allowfullscreen>
-            </iframe>
-          </div>
-          <div class="p-6">
-            <div class="flex items-center gap-2 mb-3">
-              <span class="px-2 py-1 rounded text-xs font-bold bg-accent-purple/10 text-accent-purple border border-accent-purple/20">GIT</span>
-              <span class="text-slate-500 text-xs">Débutant</span>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <!-- Video: Concepts Base -->
+          <article class="group bg-white rounded-2xl overflow-hidden shadow-soft hover:shadow-xl transition-all duration-300 border border-gray-100">
+            <div class="relative aspect-video bg-gray-100">
+               <iframe src="https://www.youtube.com/embed/T9_B7vwGnBs" title="Concepts de base" class="absolute inset-0 w-full h-full" frameborder="0" allowfullscreen></iframe>
             </div>
-            <h3 class="font-display text-xl font-bold mb-2 group-hover:text-accent-purple transition-colors">Concepts de base de GitHub</h3>
-            <p class="text-slate-400 text-sm leading-relaxed">
-              Comprendre les fondements du contrôle de version, les commits, les branches et l'écosystème collaboratif de GitHub.
-            </p>
-          </div>
-        </article>
-
-        <!-- Video 2 -->
-        <article class="group glass-panel rounded-2xl overflow-hidden hover:border-accent-cyan/50 transition-all duration-300 hover:transform hover:-translate-y-2 hover:shadow-2xl">
-          <div class="relative aspect-video bg-black/50 overflow-hidden">
-             <iframe 
-              src="https://www.youtube.com/embed/WCMJMIuBr8o" 
-              title="Télécharger Git Linux" 
-              class="absolute inset-0 w-full h-full" 
-              frameborder="0" 
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-              allowfullscreen>
-            </iframe>
-          </div>
-          <div class="p-6">
-            <div class="flex items-center gap-2 mb-3">
-              <span class="px-2 py-1 rounded text-xs font-bold bg-orange-500/10 text-orange-400 border border-orange-500/20">LINUX</span>
+            <div class="p-6">
+              <span class="text-xs font-bold text-ulaval-gold uppercase tracking-wider">Théorie</span>
+              <h3 class="font-display text-lg font-bold mt-2 mb-3 text-neutral-900">Concepts de base de GitHub</h3>
+              <p class="text-gray-500 text-sm leading-relaxed">Les fondements du contrôle de version, commits et branches.</p>
             </div>
-            <h3 class="font-display text-xl font-bold mb-2 group-hover:text-accent-cyan transition-colors">Installation Git sur Linux</h3>
-            <p class="text-slate-400 text-sm leading-relaxed">
-              Guide complet pour installer et configurer Git sur les distributions Linux. Les commandes essentielles du terminal.
-            </p>
-          </div>
-        </article>
+          </article>
 
-        <!-- Video 3 -->
-        <article class="group glass-panel rounded-2xl overflow-hidden hover:border-gray-500/50 transition-all duration-300 hover:transform hover:-translate-y-2 hover:shadow-2xl">
-          <div class="relative aspect-video bg-black/50 overflow-hidden">
-             <iframe 
-              src="https://www.youtube.com/embed/f5AziMHmPAU" 
-              title="Télécharger Git Mac" 
-              class="absolute inset-0 w-full h-full" 
-              frameborder="0" 
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-              allowfullscreen>
-            </iframe>
-          </div>
-          <div class="p-6">
-            <div class="flex items-center gap-2 mb-3">
-              <span class="px-2 py-1 rounded text-xs font-bold bg-gray-100/10 text-gray-300 border border-gray-100/20">MACOS</span>
+          <!-- Video: Install Linux -->
+          <article class="group bg-white rounded-2xl overflow-hidden shadow-soft hover:shadow-xl transition-all duration-300 border border-gray-100">
+            <div class="relative aspect-video bg-gray-100">
+               <iframe src="https://www.youtube.com/embed/WCMJMIuBr8o" title="Git Linux" class="absolute inset-0 w-full h-full" frameborder="0" allowfullscreen></iframe>
             </div>
-            <h3 class="font-display text-xl font-bold mb-2 group-hover:text-white transition-colors">Installation Git sur Mac</h3>
-            <p class="text-slate-400 text-sm leading-relaxed">
-              Tutoriel pas à pas pour les utilisateurs Apple. Installation via Homebrew ou l'installateur officiel.
-            </p>
-          </div>
-        </article>
-
-        <!-- Video 4 -->
-        <article class="group glass-panel rounded-2xl overflow-hidden hover:border-blue-500/50 transition-all duration-300 hover:transform hover:-translate-y-2 hover:shadow-2xl">
-          <div class="relative aspect-video bg-black/50 overflow-hidden">
-             <iframe 
-              src="https://www.youtube.com/embed/_PBrccEKDBY" 
-              title="Télécharger Git Windows" 
-              class="absolute inset-0 w-full h-full" 
-              frameborder="0" 
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-              allowfullscreen>
-            </iframe>
-          </div>
-          <div class="p-6">
-            <div class="flex items-center gap-2 mb-3">
-              <span class="px-2 py-1 rounded text-xs font-bold bg-blue-500/10 text-blue-400 border border-blue-500/20">WINDOWS</span>
+            <div class="p-6">
+              <span class="text-xs font-bold text-gray-500 uppercase tracking-wider">Installation</span>
+              <h3 class="font-display text-lg font-bold mt-2 mb-3 text-neutral-900">Git sur Linux</h3>
+              <p class="text-gray-500 text-sm leading-relaxed">Guide d'installation et configuration pour distributions Linux.</p>
             </div>
-            <h3 class="font-display text-xl font-bold mb-2 group-hover:text-blue-400 transition-colors">Installation Git sur Windows</h3>
-            <p class="text-slate-400 text-sm leading-relaxed">
-              Configuration de Git Bash et de l'environnement de développement sur Windows pour éviter les pièges courants.
-            </p>
-          </div>
-        </article>
+          </article>
 
-        <!-- Video 5 -->
-        <article class="group glass-panel rounded-2xl overflow-hidden hover:border-green-500/50 transition-all duration-300 hover:transform hover:-translate-y-2 hover:shadow-2xl">
-          <div class="relative aspect-video bg-black/50 overflow-hidden">
-             <iframe 
-              src="https://www.youtube.com/embed/-irxidjj4UM" 
-              title="Introduction à LaTeX" 
-              class="absolute inset-0 w-full h-full" 
-              frameborder="0" 
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-              allowfullscreen>
-            </iframe>
-          </div>
-          <div class="p-6">
-            <div class="flex items-center gap-2 mb-3">
-              <span class="px-2 py-1 rounded text-xs font-bold bg-green-500/10 text-green-400 border border-green-500/20">LATEX</span>
+          <!-- Video: Install Mac -->
+          <article class="group bg-white rounded-2xl overflow-hidden shadow-soft hover:shadow-xl transition-all duration-300 border border-gray-100">
+            <div class="relative aspect-video bg-gray-100">
+               <iframe src="https://www.youtube.com/embed/f5AziMHmPAU" title="Git Mac" class="absolute inset-0 w-full h-full" frameborder="0" allowfullscreen></iframe>
             </div>
-            <h3 class="font-display text-xl font-bold mb-2 group-hover:text-green-400 transition-colors">Introduction à LaTeX et Overleaf</h3>
-            <p class="text-slate-400 text-sm leading-relaxed">
-              Découvrez la puissance de LaTeX pour la rédaction scientifique. Premiers pas avec l'éditeur collaboratif Overleaf.
-            </p>
-          </div>
-        </article>
-
-         <!-- Video 6 -->
-        <article class="group glass-panel rounded-2xl overflow-hidden hover:border-blue-600/50 transition-all duration-300 hover:transform hover:-translate-y-2 hover:shadow-2xl">
-          <div class="relative aspect-video bg-black/50 overflow-hidden">
-             <iframe 
-              src="https://www.youtube.com/embed/0ROtPcOvyFM" 
-              title="Introduction à R" 
-              class="absolute inset-0 w-full h-full" 
-              frameborder="0" 
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-              allowfullscreen>
-            </iframe>
-          </div>
-          <div class="p-6">
-            <div class="flex items-center gap-2 mb-3">
-              <span class="px-2 py-1 rounded text-xs font-bold bg-blue-600/10 text-blue-400 border border-blue-600/20">RSTATS</span>
+            <div class="p-6">
+              <span class="text-xs font-bold text-gray-500 uppercase tracking-wider">Installation</span>
+              <h3 class="font-display text-lg font-bold mt-2 mb-3 text-neutral-900">Git sur Mac</h3>
+              <p class="text-gray-500 text-sm leading-relaxed">Installation via Homebrew ou l'installateur officiel Apple.</p>
             </div>
-            <h3 class="font-display text-xl font-bold mb-2 group-hover:text-blue-400 transition-colors">Introduction à R</h3>
-            <p class="text-slate-400 text-sm leading-relaxed">
-              Familiarisez-vous avec le langage R. Installation, concepts de base et découverte de l'interface.
-            </p>
-          </div>
-        </article>
+          </article>
 
-         <!-- Video 7 -->
-        <article class="group glass-panel rounded-2xl overflow-hidden hover:border-blue-400/50 transition-all duration-300 hover:transform hover:-translate-y-2 hover:shadow-2xl">
-          <div class="relative aspect-video bg-black/50 overflow-hidden">
-             <iframe 
-              src="https://www.youtube.com/embed/Qv8dwsShtMc" 
-              title="Analyse de données avec R" 
-              class="absolute inset-0 w-full h-full" 
-              frameborder="0" 
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-              allowfullscreen>
-            </iframe>
-          </div>
-          <div class="p-6">
-            <div class="flex items-center gap-2 mb-3">
-              <span class="px-2 py-1 rounded text-xs font-bold bg-blue-400/10 text-blue-300 border border-blue-400/20">ANALYSE</span>
+          <!-- Video: Install Windows -->
+          <article class="group bg-white rounded-2xl overflow-hidden shadow-soft hover:shadow-xl transition-all duration-300 border border-gray-100">
+            <div class="relative aspect-video bg-gray-100">
+               <iframe src="https://www.youtube.com/embed/_PBrccEKDBY" title="Git Windows" class="absolute inset-0 w-full h-full" frameborder="0" allowfullscreen></iframe>
             </div>
-            <h3 class="font-display text-xl font-bold mb-2 group-hover:text-blue-300 transition-colors">Analyse de données avec R</h3>
-            <p class="text-slate-400 text-sm leading-relaxed">
-              Plongez dans l'analyse quantitative. Importation de données, manipulation et premières statistiques descriptives.
-            </p>
-          </div>
-        </article>
-
-         <!-- Video 8 -->
-        <article class="group glass-panel rounded-2xl overflow-hidden hover:border-red-500/50 transition-all duration-300 hover:transform hover:-translate-y-2 hover:shadow-2xl">
-          <div class="relative aspect-video bg-black/50 overflow-hidden">
-             <iframe 
-              src="https://www.youtube.com/embed/Y1mY9-dIEQU" 
-              title="Zotero" 
-              class="absolute inset-0 w-full h-full" 
-              frameborder="0" 
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-              allowfullscreen>
-            </iframe>
-          </div>
-          <div class="p-6">
-            <div class="flex items-center gap-2 mb-3">
-              <span class="px-2 py-1 rounded text-xs font-bold bg-red-500/10 text-red-400 border border-red-500/20">RECHERCHE</span>
+            <div class="p-6">
+              <span class="text-xs font-bold text-gray-500 uppercase tracking-wider">Installation</span>
+              <h3 class="font-display text-lg font-bold mt-2 mb-3 text-neutral-900">Git sur Windows</h3>
+              <p class="text-gray-500 text-sm leading-relaxed">Configuration de Git Bash et de l'environnement Windows.</p>
             </div>
-            <h3 class="font-display text-xl font-bold mb-2 group-hover:text-red-400 transition-colors">Zotero pour la recherche</h3>
-            <p class="text-slate-400 text-sm leading-relaxed">
-              Optimisez votre flux de travail académique. Gestion des références, citations automatiques et organisation des sources.
-            </p>
-          </div>
-        </article>
+          </article>
 
-         <!-- Video 9 -->
-        <article class="group glass-panel rounded-2xl overflow-hidden hover:border-accent-pink/50 transition-all duration-300 hover:transform hover:-translate-y-2 hover:shadow-2xl">
-          <div class="relative aspect-video bg-black/50 overflow-hidden">
-             <iframe 
-              src="https://www.youtube.com/embed/QJMJ8WrAkx0" 
-              title="Collaboration GitHub" 
-              class="absolute inset-0 w-full h-full" 
-              frameborder="0" 
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-              allowfullscreen>
-            </iframe>
-          </div>
-          <div class="p-6">
-            <div class="flex items-center gap-2 mb-3">
-              <span class="px-2 py-1 rounded text-xs font-bold bg-accent-pink/10 text-accent-pink border border-accent-pink/20">ADVANCED</span>
+          <!-- Video: Collaboration -->
+          <article class="group bg-white rounded-2xl overflow-hidden shadow-soft hover:shadow-xl transition-all duration-300 border border-gray-100 bg-gradient-to-br from-white to-gray-50">
+            <div class="relative aspect-video bg-gray-100">
+               <iframe src="https://www.youtube.com/embed/QJMJ8WrAkx0" title="Collaboration" class="absolute inset-0 w-full h-full" frameborder="0" allowfullscreen></iframe>
             </div>
-            <h3 class="font-display text-xl font-bold mb-2 group-hover:text-accent-pink transition-colors">Collaboration & Bonnes Pratiques</h3>
-            <p class="text-slate-400 text-sm leading-relaxed">
-              Travailler efficacement en équipe sur GitHub. Pull requests, résolution de conflits et hygiène du code.
-            </p>
-          </div>
-        </article>
+            <div class="p-6">
+              <span class="text-xs font-bold text-ulaval-red uppercase tracking-wider">Avancé</span>
+              <h3 class="font-display text-lg font-bold mt-2 mb-3 text-neutral-900">Collaboration & Bonnes Pratiques</h3>
+              <p class="text-gray-500 text-sm leading-relaxed">Travailler en équipe, gérer les conflits et Pull Requests.</p>
+            </div>
+          </article>
+        </div>
+      </section>
 
-      </div>
+
+      <!-- Section: R -->
+      <section id="r" class="scroll-mt-32">
+        <div class="flex items-center gap-4 mb-12">
+          <div class="w-12 h-12 rounded-2xl bg-blue-600 text-white flex items-center justify-center shadow-soft shadow-blue-200">
+            <span class="font-bold text-xl">R</span>
+          </div>
+          <div>
+            <h2 class="font-display text-3xl font-bold text-neutral-900 section-title">R & Analyse de Données</h2>
+            <p class="text-gray-500 mt-2">Programmation statistique</p>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <!-- Video: Intro R -->
+          <article class="group bg-white rounded-2xl overflow-hidden shadow-soft hover:shadow-xl transition-all duration-300 border border-gray-100">
+            <div class="relative aspect-video bg-gray-100">
+               <iframe src="https://www.youtube.com/embed/0ROtPcOvyFM" title="Intro R" class="absolute inset-0 w-full h-full" frameborder="0" allowfullscreen></iframe>
+            </div>
+            <div class="p-6">
+              <span class="text-xs font-bold text-blue-500 uppercase tracking-wider">Débutant</span>
+              <h3 class="font-display text-lg font-bold mt-2 mb-3 text-neutral-900">Introduction à R</h3>
+              <p class="text-gray-500 text-sm leading-relaxed">Premiers pas avec le langage R et RStudio. Concepts fondamentaux.</p>
+            </div>
+          </article>
+
+          <!-- Video: Analyse R -->
+          <article class="group bg-white rounded-2xl overflow-hidden shadow-soft hover:shadow-xl transition-all duration-300 border border-gray-100">
+            <div class="relative aspect-video bg-gray-100">
+               <iframe src="https://www.youtube.com/embed/Qv8dwsShtMc" title="Analyse R" class="absolute inset-0 w-full h-full" frameborder="0" allowfullscreen></iframe>
+            </div>
+            <div class="p-6">
+              <span class="text-xs font-bold text-blue-500 uppercase tracking-wider">Pratique</span>
+              <h3 class="font-display text-lg font-bold mt-2 mb-3 text-neutral-900">Analyse de données avec R</h3>
+              <p class="text-gray-500 text-sm leading-relaxed">Importation, nettoyage et premières analyses descriptives.</p>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- Section: LaTeX -->
+      <section id="latex" class="scroll-mt-32">
+        <div class="flex items-center gap-4 mb-12">
+          <div class="w-12 h-12 rounded-2xl bg-green-600 text-white flex items-center justify-center shadow-soft shadow-green-200">
+            <span class="font-bold font-serif text-xl italic">TeX</span>
+          </div>
+          <div>
+            <h2 class="font-display text-3xl font-bold text-neutral-900 section-title">LaTeX</h2>
+            <p class="text-gray-500 mt-2">Rédaction scientifique</p>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <!-- Video: Intro LaTeX -->
+          <article class="group bg-white rounded-2xl overflow-hidden shadow-soft hover:shadow-xl transition-all duration-300 border border-gray-100">
+            <div class="relative aspect-video bg-gray-100">
+               <iframe src="https://www.youtube.com/embed/-irxidjj4UM" title="Intro LaTeX" class="absolute inset-0 w-full h-full" frameborder="0" allowfullscreen></iframe>
+            </div>
+            <div class="p-6">
+              <span class="text-xs font-bold text-green-600 uppercase tracking-wider">Rédaction</span>
+              <h3 class="font-display text-lg font-bold mt-2 mb-3 text-neutral-900">Introduction à LaTeX et Overleaf</h3>
+              <p class="text-gray-500 text-sm leading-relaxed">Créer des documents scientifiques professionnels avec LaTeX.</p>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- Section: Zotero -->
+      <section id="zotero" class="scroll-mt-32">
+        <div class="flex items-center gap-4 mb-12">
+          <div class="w-12 h-12 rounded-2xl bg-red-500 text-white flex items-center justify-center shadow-soft shadow-red-200">
+            <span class="font-bold text-xl">Z</span>
+          </div>
+          <div>
+            <h2 class="font-display text-3xl font-bold text-neutral-900 section-title">Zotero</h2>
+            <p class="text-gray-500 mt-2">Gestion bibliographique</p>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <!-- Video: Zotero -->
+          <article class="group bg-white rounded-2xl overflow-hidden shadow-soft hover:shadow-xl transition-all duration-300 border border-gray-100">
+            <div class="relative aspect-video bg-gray-100">
+               <iframe src="https://www.youtube.com/embed/Y1mY9-dIEQU" title="Zotero" class="absolute inset-0 w-full h-full" frameborder="0" allowfullscreen></iframe>
+            </div>
+            <div class="p-6">
+              <span class="text-xs font-bold text-red-500 uppercase tracking-wider">Bibliographie</span>
+              <h3 class="font-display text-lg font-bold mt-2 mb-3 text-neutral-900">Zotero pour la recherche</h3>
+              <p class="text-gray-500 text-sm leading-relaxed">Gérer ses sources et générer des bibliographies automatiquement.</p>
+            </div>
+          </article>
+        </div>
+      </section>
+
     </main>
 
     <!-- Footer -->
-    <footer class="border-t border-slate-800 bg-dark-900/50 backdrop-blur-sm py-12 relative z-10">
+    <footer class="bg-gray-50 border-t border-gray-200 py-16">
       <div class="container mx-auto px-6">
         <div class="flex flex-col md:flex-row justify-between items-center">
           <div class="mb-6 md:mb-0">
              <div class="flex items-center space-x-2">
-                <i data-feather="box" class="text-accent-cyan w-5 h-5"></i>
-                <span class="text-lg font-display font-bold text-slate-200">CAPP<span class="text-slate-500">.métho</span></span>
+                <i data-feather="book-open" class="text-ulaval-red w-5 h-5"></i>
+                <span class="text-lg font-display font-bold text-neutral-900">CAPP<span class="text-ulaval-red">.métho</span></span>
              </div>
-             <p class="text-slate-500 text-sm mt-2">Centre d'Analyse des Politiques Publiques</p>
+             <p class="text-gray-500 text-sm mt-2 font-medium">Centre d'Analyse des Politiques Publiques</p>
           </div>
           
           <div class="flex space-x-6">
-             <a href="#" class="text-slate-400 hover:text-white transition"><i data-feather="github"></i></a>
-             <a href="#" class="text-slate-400 hover:text-white transition"><i data-feather="youtube"></i></a>
-             <a href="#" class="text-slate-400 hover:text-white transition"><i data-feather="twitter"></i></a>
+             <a href="https://github.com/capsules-metho" class="text-gray-400 hover:text-ulaval-red transition-colors transform hover:scale-110"><i data-feather="github"></i></a>
+             <a href="#" class="text-gray-400 hover:text-ulaval-red transition-colors transform hover:scale-110"><i data-feather="youtube"></i></a>
+             <a href="#" class="text-gray-400 hover:text-ulaval-red transition-colors transform hover:scale-110"><i data-feather="twitter"></i></a>
           </div>
         </div>
-        <div class="mt-8 text-center md:text-left text-slate-600 text-sm">
-          &copy; 2026 CAPP. Tous droits réservés. Design propulsé par Gemini.
+        <div class="mt-8 pt-8 border-t border-gray-200 text-center md:text-left">
+          <p class="text-gray-400 text-sm">
+            &copy; 2026 CAPP. Fièrement propulsé par les couleurs du <span class="text-ulaval-gold font-bold">Rouge et Or</span>.
+          </p>
         </div>
       </div>
     </footer>
